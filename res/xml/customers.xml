@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custmers>
+    <customer name="张三" age="50"/>
+    <customer name="李四" age="15"/>
+</custmers>

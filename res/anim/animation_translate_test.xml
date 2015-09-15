@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!--
+    fromXDelta: X轴方向开始位置，可以是%，也可以是具体的像素 具体见图
+    toXDelta:   X轴方向结束位置，可以是%，也可以是具体的像素
+    fromYDelta: Y轴方向开始位置，可以是%，也可以是具体的像素
+    toYDelta:    Y轴方向结束位置，可以是%，也可以是具体的像素    -->
+
+    <translate
+        android:duration="5000"
+        android:fromXDelta="0"
+        android:fromYDelta="0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toXDelta="400"
+        android:toYDelta="0" />
+
+</set>

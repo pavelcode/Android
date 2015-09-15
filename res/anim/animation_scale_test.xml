@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    fromXScale 起始时x坐标的尺寸，设置为1.0说明是整个图片x轴的长度 
+    fromYScale 起始时y坐标的尺寸，设置为1.0说明是整个图片y轴的长度 
+    toXScale   结束时x坐标的尺寸，设置为0.0说明整个图片x轴完全收缩到无 
+    toYScale   结束时y坐标的尺寸，设置为1.0说明是在收缩时y轴的长度保持不变 
+         那么他们的变化都是先对于某一点来变化的，因此pivotX和pivotY就是确定这个点的位置。 
+         在一个数轴上（原点为图片的左上角，x轴和y轴的射线分别是向右和向下，我测试过）： 
+    pivotX="50%" 中心点，说明是以图片本身的一半作为x轴的坐标点； 
+    pivotY="50%" 中心点，说明是以图片本身的一半作为y轴的坐标点； 
+        所以圆心点的坐标就是(0.5x,0.5y)。(x y是原图片的长和高) 
+        此效果就是以这个点的y轴为轴，x轴不断减小到0。 
+    duration 是设置的动画执行时间 
+    fillBefore是指动画结束时画面停留在第一帧
+    fillAfter是指动画结束是画面停留在最后一帧。
+    -->
+
+   <scale
+		android:fromXScale="1.0"
+		android:fromYScale="1.0"
+		android:toXScale="0.0"
+		android:toYScale="0.0"
+		android:pivotX="50%"
+		android:pivotY="50%"
+		android:repeatCount="3"
+		android:fillBefore="false"   
+		android:duration="5000"		
+	/>
+    
+
+</set>

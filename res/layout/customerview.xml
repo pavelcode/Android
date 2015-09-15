@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res/com.cblue.android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+     <com.cblue.customerview.CustomerView
+        android:id="@+id/customerView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        my:image="@drawable/customerview"
+        my:text="登录"
+        />
+
+  
+</LinearLayout>

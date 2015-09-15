@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+  <Button
+        android:id="@+id/btntweenjava1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画---alpha" />
+<Button
+    android:id="@+id/btntweenjava2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画---scale" />
+<Button
+        android:id="@+id/btntweenjava3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画--translate" />
+<Button
+    android:id="@+id/btntweenjava4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画--rotate" />
+<Button
+    android:id="@+id/btntweenjava5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画--组合" />
+<ImageView 
+        android:id="@+id/img_tweenjava"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/animationp3"
+    />  
+
+</LinearLayout>

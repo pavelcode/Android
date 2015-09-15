@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 偏爱分类 -->
+    <PreferenceCategory
+        android:key="broacast_key_settings"
+        android:title="广播设置" >
+        <CheckBoxPreference
+            android:key="broacastremind"
+            android:title="广播提醒设置" 
+            android:summary="是否接收广播的提醒"
+            android:summaryOn="开始广播"
+            android:summaryOff="关闭广播"
+            android:defaultValue="true"/>
+
+        <ListPreference
+            android:key="favorite"
+            android:summary="你喜欢的主要活动"
+            android:title="活动"
+             android:entries="@array/device_entries"
+            android:entryValues="@array/device_entries"
+             />
+
+        <!--
+		  android:ringtoneType 设置响铃模式，主要包括ringtone、notification、alarm、all
+		  android:showDefault ：默认铃声，可以使用系统(布尔值true,false)的或者自定义的铃声
+		  android:showSilent 是否显示静音   
+		       注意，如果模拟器中没有铃声的话，我们可以自己添加。将音乐复制到SD卡上，然后转到android media player应用程序，选择该音乐，   
+		      单击menu，然后选择  uses as ringtone
+        -->
+      
+        <RingtonePreference
+            android:key="ring_key"
+            android:ringtoneType="all"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:title="铃声" >
+        </RingtonePreference>
+      
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="userinfo_settings"
+        android:summary="输入用户信息"
+        android:title="用户信息设置" >
+        <CheckBoxPreference
+            android:key="setuserinfo"
+            android:title="是否设置个人信息" />
+
+        <EditTextPreference
+            android:key="username"
+            android:summary="请输入用户名"
+            android:title="用户名" 
+            android:dialogTitle="保存名字"
+            android:dialogMessage="你想好了吗？"/>
+    </PreferenceCategory>
+
+    <!-- 访问网站  看下是否能打电话 -->
+    <Preference
+        android:key="pref_key_sms_delete_limit"
+        android:summary="通过游览器打开百度"
+        android:title="访问百度搜索" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.baidu.com" />
+    </Preference>
+
+    <!-- 访问自定义的Activity -->
+
+    <Preference
+        android:summary="进入应用介绍界面"
+        android:title="欢迎" >
+
+        <!-- 点击时 自定义一个默认跳转Intent  action指定隐式Intent -->
+        <intent android:action="com.cblue.savedata.sharedpreferences.Introduce" />
+        <!-- targetPackage和targetClass指定显示Intent -->
+        <!--
+           android:targetClass="com.cblue.savedata.sharedpreferences.IntroduceActivity"
+            android:targetPackage="com.cblue.savedata.sharedpreferences"
+        -->
+    </Preference>
+
+    <!-- 跳转到子界面 -->
+    <PreferenceScreen
+        android:key="button_voicemail_category_key"
+        android:persistent="false"
+        android:title="voicemail" >
+        <Preference
+            android:key="voicemail_key1"
+            android:persistent="false"
+            android:summary="voicemail_summary1"
+            android:title="voicemail_title1" >
+        </Preference>
+        <Preference
+            android:key="voicemail_key2"
+            android:persistent="false"
+            android:summary="voicemail_summary2"
+            android:title="voicemail_title2" >
+        </Preference>
+    </PreferenceScreen>
+
+</PreferenceScreen>

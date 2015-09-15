@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content" 
+    	android:gravity = "center_vertical"
+    	android:descendantFocusability="blocksDescendants"
+    	
+    	>
+    	
+    	<ImageView
+    	    android:id = "@+id/listview_imageview"
+    	    android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:layout_margin = "5px"  
+    		android:paddingLeft = "10px"  
+    		android:paddingRight = "10px" 		
+    	/>
+    	<TextView
+    	    android:id = "@+id/listview_textview"   		
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"
+    		android:textColor = "#FFFFFFFF"
+    		android:textSize="22px"
+    		android:layout_margin = "5px"
+    		android:paddingRight = "30px"
+    		android:width = "200px"
+
+         />         
+    	
+    	<RadioButton
+    	android:id = "@+id/listview_radiobutton"  
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_margin = "5px"
+    	android:focusable = "false"
+    	android:checkable = "false"
+    	android:clickable = "false"
+    	/>
+</LinearLayout>

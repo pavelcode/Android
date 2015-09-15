@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- 设置背景颜色 -->
+
+    <Button
+        android:id="@+id/control_button01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/solid_green"
+        android:text="登陆" />
+    <!-- 设置背景图片 -->
+
+    <Button
+        android:id="@+id/control_button02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_normal_green"
+        android:text="登陆" />
+    <!-- 设置背景选择器 -->
+
+    <Button
+        android:id="@+id/control_button03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_selector"
+        android:text="登陆" />
+
+    <!-- 设置按钮事件 -->
+    <!-- 使用匿名内部类 -->
+
+    <Button
+        android:id="@+id/control_button04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击"
+        android:textColor="#FF0000"
+        android:textSize="30sp" />
+
+   <!-- 使用内部类 -->    
+    <Button
+        android:id="@+id/control_button05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击"
+        android:textColor="#FF0000"
+        android:textSize="30sp" />
+
+</LinearLayout>

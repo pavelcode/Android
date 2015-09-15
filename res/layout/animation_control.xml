@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AnimationDemo" >
+
+    <Button
+        android:id="@+id/animation_btn01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画" />
+
+    <Button
+        android:id="@+id/animation_btn02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现补间动画" />
+
+    <Button
+        android:id="@+id/animation_btn03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现逐帧动画" />
+
+    <Button
+        android:id="@+id/animation_btn04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在java中实现逐帧动画" />
+
+</LinearLayout>

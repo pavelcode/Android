@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <!--TabHost设置底部的第三种方式  -->
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" 
+                android:layout_gravity="top">
+
+				<!-- 定义第一个标签页的内容 -->
+			<LinearLayout
+				android:id="@+id/tab01"
+				android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent">
+				    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TabHost03-01"
+                        android:textSize="11pt" />
+			</LinearLayout>
+			<!-- 定义第二个标签页的内容 -->
+			<LinearLayout
+				android:id="@+id/tab02"
+				android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="match_parent">
+				 <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TabHost03-02"
+                        android:textSize="11pt" />
+			</LinearLayout>
+			<!-- 定义第三个标签页的内容 -->
+			<LinearLayout
+				android:id="@+id/tab03"
+				android:orientation="vertical"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:textSize="11pt">
+				 <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TabHost03-03"
+                        android:textSize="11pt" />
+			</LinearLayout>
+				
+            </FrameLayout>
+        </LinearLayout>
+        
+		<TabWidget
+			android:id="@android:id/tabs"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="bottom" >
+		</TabWidget>
+        
+    </TabHost>
+
+</RelativeLayout>
+

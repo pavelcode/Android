@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	<Button
+		android:id="@+id/simpleAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="SimpleAlertDialog"
+		/>
+	<Button
+		android:id="@+id/listAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="ListAlertDialog"
+		/>
+	<Button
+		android:id="@+id/singleChoiceAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="SingleChoiceItemsAlertDialog"
+		/>
+	<Button
+		android:id="@+id/multiChoiceAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="multiChoiceItemsAlertDialog"
+		/>
+	
+	<Button
+		android:id="@+id/progressAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="ProgressAlertDialog"
+		/>
+	<Button
+		android:id="@+id/customAlertDialog"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="CustomAlertDialog"
+		/>
+</LinearLayout>

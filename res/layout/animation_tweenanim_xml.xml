@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+<Button
+        android:id="@+id/btntweenxml1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画---alpha" />
+<Button
+    android:id="@+id/btntweenxml2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画---scale" />
+<Button
+        android:id="@+id/btntweenxml3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画--translate" />
+<Button
+    android:id="@+id/btntweenxml4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画--rotate" />
+<Button
+    android:id="@+id/btntweenxml5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="在XML中实现补间动画--组合" />
+<ImageView 
+        android:id="@+id/img_tweenxml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/animationp3"
+    />
+</LinearLayout>

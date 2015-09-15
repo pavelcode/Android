@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="75dp"
+    android:padding="30dp"
+    android:orientation="vertical" >
+
+    <!-- 使用相对布局完成登陆 -->
+    
+    <TextView 
+        android:id="@+id/tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+       android:textSize="25sp"
+        android:text="登陆"/>
+    
+    <EditText 
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="输入用户名"/>
+  
+     <EditText 
+        android:id="@+id/et2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/et1"
+        android:layout_alignRight="@id/et1"
+        android:layout_below="@id/et1"
+        android:text="输入密码"/>
+    
+     
+     <Button
+         android:id="@+id/btn1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/et2"
+         android:text="取消"
+         android:layout_alignParentRight="true"
+         ></Button>
+     
+     <Button 
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/btn1"
+        android:layout_toLeftOf="@id/btn1"
+        android:text="登陆"
+         />
+
+</RelativeLayout>

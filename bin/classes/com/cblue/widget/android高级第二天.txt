@@ -1,0 +1,65 @@
+随机存储  Random Access Memory
+只读存储  Read Only Memory
+
+
+五种存储方式
+
+SharePreferences  写入或者读取以xml形式保存的键值对文件。
+
+内部存储
+
+外部存储
+
+DB
+
+NetWork
+
+
+持久化：把数据保存在ROM的过程
+
+文件权限：
+
+private 0
+readable 1
+writerable 2
+executeable 4
+
+6
+7
+5
+
+
+代码分析：
+1点击登录按钮的时候，写入到preference文件中
+2 如果密码记住被选中，这个值是true
+3 选中自动登录，true,这个时候密码记住是不是一定是true
+
+
+
+username --values
+password --values
+remember ---boolean
+autologin-- boolean 
+
+
+SharedPreferences的意义：保存用户的设置。特点：数据量小，结构性比较强。
+
+Activity使用的思路
+1.布局文件
+2.继承Activity，得到对象的控件
+3.给控件添加对应的事件
+
+
+
+控件对象--对应Java对象
+
+
+事件：
+
+
+作业：
+1 做一个qq的属性设置功能
+2 预习file
+
+
+   

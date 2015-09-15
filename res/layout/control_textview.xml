@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- 通过配置文件创建TextView -->
+
+    <TextView
+        android:id="@+id/control_textview01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京" />
+
+    <!-- 设定文字大小 -->
+
+    <TextView
+        android:id="@+id/control_textview02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京"
+        android:textSize="30sp" />
+
+    <!-- 设定文字颜色 -->
+
+    <TextView
+        android:id="@+id/control_textview03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="北京"
+        android:textColor="#00FF00"
+        android:textSize="30sp" />
+
+    <!-- 设定文字中的超链 -->
+
+    <TextView
+        android:id="@+id/control_textview04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="email"
+        android:text="我的emial：zhangsan@163.com，记得给我发邮件"
+        android:textColor="#00FF00"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/control_textview05"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="baidu的首页是http://www.baidu.com，要记得哦"
+        android:textColor="#00FF00"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/control_textview06"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="phone"
+        android:text="我们这里的报警电话是13800138000，要记得哦"
+        android:textColor="#00FF00"
+        android:textSize="30sp" />
+
+    <!-- 设定文字保存在配置文件中 -->
+
+    <TextView
+        android:id="@+id/control_textview07"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        android:textColor="#00FF00"
+        android:textSize="30sp" />
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <!-- Login Start -->
+    <item name="loginet" type="id"/>
+    <item name="passwdet" type="id"/>
+    <!-- Login End -->
+    
+    <!-- Control Start -->
+    <item name="thost" type="id"></item>
+    
+  
+    <!-- Control End -->
+
+</resources>

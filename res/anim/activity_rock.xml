@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/defaultLinearLayout" >
+
+    <LinearLayout style="@style/defaultLinearLayout" >
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            style="@style/defaultLinearLayout"
+            android:layout_height="150dp"
+            android:background="@color/white" >
+
+            <Button style="@style/defaultTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout2"
+            style="@style/defaultLinearLayout"
+            android:layout_height="150dp"
+            android:background="@color/blue" >
+
+            <Button style="@style/defaultTextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout3"
+            style="@style/defaultLinearLayout"
+            android:layout_height="150dp"
+            android:background="@color/grass_green" >
+
+            <Button style="@style/defaultTextView" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout style="@style/defaultLinearLayout" >
+
+        <LinearLayout
+            android:id="@+id/rock_layout"
+            style="@style/defaultLinearLayout"
+            android:layout_height="150dp"
+            android:layout_marginBottom="150dp"
+            android:layout_marginTop="150dp"
+            android:background="@color/orange_yellow"
+            android:visibility="visible" >
+
+            <Button style="@style/defaultTextView" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,17 @@
+﻿1 线程的阻塞
+2 异步操作
+3 异步操作类AsyncTask
+4 重点讲下AsyncTask的常用方法
+
+
+onPreExecute 准备操作(主线程中)
+doInBackground 耗时操作(子线程中)
+onPostExecute 结果操作(主线程中)
+
+publishprogress   控制进度条的当前进度
+onProgressUpdate  更新进度条
+
+
+参数1 代表了doInbackground的参数类型
+参数2 代表onProgressUpdate的参数类型
+参数3 代表了doInbackground返回的参数类型，同时是onPostExecute的参数类型

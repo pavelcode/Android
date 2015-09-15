@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+
+   <!-- EditText输入控件 -->
+    <EditText 
+        android:id="@+id/controleditext01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"/>
+    
+    
+    <!-- 输入控件的数据类型，长度 -->
+      <!-- 密码 -->
+      <EditText 
+        android:id="@+id/controleditext02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="请输入密码"/>
+      <!-- 电话号码 -->
+        <EditText 
+        android:id="@+id/controleditext03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:maxLength="11"
+        android:hint="请输入手机号码"/>
+        
+        <EditText 
+        android:id="@+id/controleditext04"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape"
+      />
+    
+
+</LinearLayout>

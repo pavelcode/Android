@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">
+ </HEAD>
+
+ <BODY>
+  <form action="LoginServlet" method="get">
+<table border="1"  align="center">
+  <tr align="center">
+    <td colspan="2"><b>�û���¼</b></td>
+  
+  </tr>
+  <tr>
+    <td>�û���</td>
+    <td><input type="text" name="username"/></td>
+  </tr>
+  <tr>
+    <td>����</td>
+    <td><input type="password" name="password"/></td>
+  </tr>
+  <tr align="right">
+    <td colspan="2"><input type="submit" value="��¼"/><input type="reset" value="����"/></td>
+  </tr>
+</table>
+</form>
+ </BODY>
+</HTML>

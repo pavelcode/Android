@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="customview_attr">
+        <attr name="image" format="reference"/>
+        <attr name="text" format="reference|string"/>
+    </declare-styleable>
+    
+    <!-- 夜间模式 属性定义 -->
+    <attr name="nd_background" format="reference|string"/>
+    <attr name="nd_textcolor" format="reference|string"/> 
+</resources>

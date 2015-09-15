@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cblue.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BATTERY_STATS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
+    <!-- 百度地图权限 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+         <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="eLFyPewwX7phdcb2jgzPl6n3" />
+
+        <!-- Test start -->
+        <uses-library android:name="android.test.runner" />
+        <!-- Test end -->
+
+        <!-- Thread Start -->
+        <activity
+            android:name="com.cblue.thread.handler.HandlerActivityDemo02"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.thread.handler.HandlerActivityDemo04"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.thread.handler.HandlerActivityDemo05"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.thread.handler.MyHandlerServiceActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.thread.handler.MyHandlerService" >
+        </service>
+
+        <activity
+            android:name="com.cblue.thread.asynctask.AsyncTaskActivity1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.thread.asynctask.AsyncTaskActivity2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.thread.asynctask.AsyncTaskActivity3"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Thread End -->
+
+
+        <!-- Control Start -->
+        <activity
+            android:name="com.cblue.control.TextViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ButtonActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.EditTextActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ImageViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ImageButtonActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.CheckBoxActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.RadioButtonActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ProgressBarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.SeekBarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.RatingBarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ToggleButtonActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ImageSwitchActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.DatePickerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.TimePickerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.SpinnerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ScrollViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.widget.listview.ListViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+       
+    
+        <activity
+            android:name="com.cblue.control.GridViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.ExpandableListViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.AutocompleteActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.MyViewActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.TabHostActivity1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.control.TabHostActivity2"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Control End -->
+
+
+        <!-- Interaction WebViwe Start -->
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewActivity1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewActivity2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewActivity3"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewActivity4"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewFirstActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.webview.WebViewSecondActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Interaction WebViwe End -->
+
+
+        <!-- Interaction HTTP Start -->
+        <activity
+            android:name="com.cblue.interaction.http.ApacheHttpClient"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.http.BasicHttpClient"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.interaction.http.MyHTTPActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Interaction HTTP End -->
+        <!-- Interaction XML Start -->
+        <!-- Interaction XML End -->
+        <!-- Interaction WebService Start -->
+
+        <activity
+            android:name="com.cblue.interaction.webservice.WebServiceActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Interaction WebService End -->
+
+
+        <!-- Dialog Start -->
+        <activity
+            android:name="com.cblue.dialog.AlertDialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.dialog.DialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.dialog.DateDialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.dialog.TimeDialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.dialog.ProgressDialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.dialog.SelfDialogActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Dialog End -->
+
+
+        <!-- Menu Start -->
+        <activity
+            android:name="com.cblue.menu.MenuActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Menu End -->
+
+
+        <!-- Intent Start -->
+        <activity
+            android:name="com.cblue.activity.IntentActivity01"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.cblue.activity.IntentActivity02"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Intent End -->
+
+
+        <!-- ActivityLife Start -->
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCycle_One"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCycleAllCover01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCycleAllCover02"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCyclePartCover01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCyclePartCover02"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activitylife.ActivityLifeCycle_Dialog"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- ActivityLife End -->
+
+
+        <!-- Activity Start -->
+        <activity
+            android:name="com.cblue.component.activity.TaskActivity01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.TaskActivity02"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.TaskActivity03"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.ForReturnActivityDemo01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.ForReturnActivityDemo02"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.cblue.component.activity.SaveInstanceStateActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.ShowActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.component.activity.SexChoiseActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Activity End -->
+
+
+        <!-- PopWindow Start -->
+        <activity
+            android:name="com.cblue.popwindow.PopWindowMenuAcitivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.popwindow.PopWindowDialogAcitivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- PopWindow End -->
+
+
+        <!-- Fragment Start -->
+
+        <activity
+            android:name="com.cblue.fragment.basic.FragmentDemo01Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.fragment.basic.FragmentDemo02Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.fragment.basic.FragmentDemo03Activity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.fragment.FragmentActivityDemo"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Fragment End -->
+
+
+        <!-- Layout Start -->
+        <activity
+            android:name="com.cblue.layout.LinerLayoutActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.layout.RelativeLayoutActvity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.layout.FrameLayoutActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.layout.TabLayoutActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.layout.AbsoluteLayoutActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.layout.drwaerlayout.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Layout End -->
+
+
+        <!-- Service Start -->
+        <activity
+            android:name="com.cblue.component.service.StartServiceActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.component.service.StartService" />
+
+        <activity
+            android:name="com.cblue.component.service.MyBinderServiceActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.component.service.MyBinderService" >
+        </service>
+
+        <activity
+            android:name="com.cblue.component.service.MyIntentServiceActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.component.service.MyIntentService" >
+        </service>
+
+        <!-- Service End -->
+
+
+        <!-- Event Start -->
+        <activity
+            android:name="com.cblue.event.ButtonEventActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.event.GestureEventActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.event.TouchEventActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Event End -->
+
+
+        <!-- StatusBar Start -->
+        <activity
+            android:name="com.cblue.statusbar.MyStatusBarActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.statusbar.MyStatusBarService" >
+        </service>
+        <!-- StatusBar End -->
+
+
+        <!-- File Start -->
+        <activity
+            android:name="com.cblue.file.MyFileActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.file.MyFileService" >
+        </service>
+        <!-- File End -->
+
+
+        <!-- XML Start -->
+
+        <activity
+            android:name="com.cblue.interaction.xml2.XMLOperateActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- XML End -->
+
+
+        <!-- ContentProvider Start -->
+
+        <provider
+            android:name="com.cblue.savedata.contentprovider.PersonContentProvider"
+            android:authorities="com.cblue.savedata.contentprovider.personcontentprovider" >
+        </provider>
+        <activity
+            android:name="com.cblue.savedata.contentprovider.ContactsActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- ContentProvider End -->
+
+
+        <!-- BroadCast Start -->
+        <activity
+            android:name="com.cblue.component.broadcast.MyBroadcastReceiverActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <receiver android:name="com.cblue.component.broadcast.MyBroadcastReceiver02" >
+            <intent-filter>
+                <action android:name="aaa" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.MyBroadcastReceiver01" >
+            <intent-filter>
+                <action android:name="aaa" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.MyBroadcastReceiver03" >
+            <intent-filter>
+                <action android:name="aaa" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.BroadcastNotificationDemo04" >
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.MyOrderedBroadcastReceiver01" >
+            <intent-filter android:priority="998" >
+                <action android:name="bbb" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.MyOrderedBroadcastReceiver02" >
+            <intent-filter android:priority="1000" >
+                <action android:name="bbb" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.MyOrderedBroadcastReceiver03" >
+            <intent-filter android:priority="999" >
+                <action android:name="bbb" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.cblue.component.broadcast.BatteryStateActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <receiver android:name="com.cblue.component.broadcast.StartSystemBroadcast" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.HOME" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.cblue.component.broadcast.SMSBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.cblue.component.broadcast.SelfReigisterBroadcastReceiverActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- BroadCast End -->
+
+
+        <!-- AppWidget Start -->
+        <receiver android:name="com.cblue.widget.ExampleAppWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/example_appwidget_info" />
+-        
+            <intent-filter>
+                <action android:name="com.cblue.widget.appWidgetUpdate" />
+            </intent-filter>
+        </receiver>
+
+        <!-- AppWidget End -->
+
+
+        <!-- Notification Start -->
+        <activity
+            android:name="com.cblue.notification.NotificationDemo01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.notification.NotificationDemo02"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Notification End -->
+
+
+        <!-- Savedata SharedPreferences Start -->
+        <activity
+            android:name="com.cblue.savedata.sharedpreferences.SharedPreferencesActivity1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.savedata.sharedpreferences.SharedPreferencesActivity2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.savedata.sharedpreferences.SettingActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.savedata.sharedpreferences.IntroduceActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.cblue.savedata.sharedpreferences.Introduce" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Savedata SharedPreferences End -->
+
+
+        <!-- Sqlite Start -->
+
+        <activity
+            android:name="com.cblue.savadata.sqlite.CursorAdapaterListActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Sqlite End -->
+        <!-- Animation Start -->
+        <activity
+            android:name="com.cblue.animation.TweenAnimationXML"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.animation.TweenAnimationJava"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.animation.FreamAnimationXML"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.animation.FrameAnimationJava"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.animation.BootAnimation"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Animation End -->
+
+
+        <!-- Media Start -->
+        <activity
+            android:name="com.cblue.media.music.MediaPlayerActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <service android:name="com.cblue.media.music.MediaPlayerService1" >
+        </service>
+        <service android:name="com.cblue.media.music.MediaPlayerService2" >
+        </service>
+
+        <activity
+            android:name="com.cblue.media.music.SoundPoolActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.media.video.VideoPlayActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.media.video.SurfaceViewPlayActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Media End -->
+
+
+        <!-- Time Start -->
+        <activity
+            android:name="com.cblue.time.AlarmActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <receiver android:name="com.cblue.time.AlarmBroadCast" >
+            <intent-filter>
+                <action android:name="com.cblue.time.alarmbroadcast" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.cblue.time.TimerActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <!-- Time End -->
+
+
+        <!-- Sensor Start -->
+
+        <activity
+            android:name="com.cblue.hardware.sensor.SensorTypesActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.hardware.sensor.RockActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.hardware.sensor.SensorOrientationActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cblue.hardware.sensor.SensorLightActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Sensor End -->
+
+
+        <!-- Camera Start -->
+
+        <activity
+            android:name="com.cblue.hardware.camera.CameraActivity01"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.hardware.camera.CameraActivity02"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.cblue.hardware.camera.CameraActivity03"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Camera End -->
+
+
+        <!-- Wifi Start -->
+
+        <activity
+            android:name="com.cblue.wifi.WifiActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+        <!-- Wifi End -->
+    </application>
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.cblue.android" />
+
+</manifest>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dip" >
+
+    <TextView
+        android:id="@+id/selfdialogTV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="用户名" />
+
+    <EditText
+        android:id="@+id/selfdialogEV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/selfdialogTV1" />
+
+    <EditText
+        android:id="@+id/selfdialogEV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/selfdialogEV1"
+        android:layout_alignRight="@id/selfdialogEV1"
+        android:layout_below="@id/selfdialogEV1"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/selfdialogTV2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/selfdialogEV2"
+        android:layout_toLeftOf="@+id/selfdialogEV2"
+        android:text="密码" />
+
+</RelativeLayout>

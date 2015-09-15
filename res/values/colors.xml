@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="solid_white">#ffffffff</color>
+    <color name="solid_red">#ffff0000</color>
+    <color name="solid_green">#ff00ff00</color>
+    <color name="solid_blue">#ff0000ff</color>
+    <color name="solid_yellow">#ffffff00</color>
+    <color name="solid_black">#00000000</color>
+    <color name="solid_dim_gray">#ff696969</color>
+    <color name="solid_dark_gray">#ffa9a9a9</color>
+    <color name="title_mid">#ffd1cfd0</color>
+    <color name="solid_yellow_land">#ff8a360f</color>
+    <color name="list_even_line">#ff141514</color>
+    <color name="list_odd_line">#ff080808</color>
+    <color name="textview_link_color">#ff0090ff</color>
+    <color name="bright_foreground_dark">#ffffffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
+    <color name="blue">#ff6ebeff</color>
+    <color name="grass_green">#79a72c</color>
+    <color name="orange_yellow">#e66d14</color>
+    
+        <color name="red">#900</color>
+    <color name="green">#090</color>
+    
+     <!-- 夜间模式 属性定义 -->
+    <color name="nd_white">#ffffff</color>
+    <color name="nd_black">#000000</color>
+   
+</resources>

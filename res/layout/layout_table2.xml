@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_vertical"
+        android:stretchColumns="0,3" >
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logintv" />
+
+            <EditText
+                android:id="@id/loginet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/loginhint"
+                android:inputType="text" />
+
+            <TextView />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/passwdtv" />
+
+            <EditText
+                android:id="@id/passwdet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/passwdhint"
+                android:inputType="textPassword" />
+
+            <TextView />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView />
+
+            <TextView />
+
+            <Button
+                android:id="@+id/loginbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/loginbtn"
+                android:width="60dp" />
+
+            <TextView />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
