@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/nd_background"
-    tools:context="com.cblue.nightandday.NightAndDayActivity" >
+    tools:context="com.cblue.ui.nightandday.NightAndDayActivity" >
 
     <Button android:id="@+id/nd_btn"
         android:layout_width="wrap_content"

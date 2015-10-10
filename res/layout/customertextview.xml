@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-    <com.cblue.customerview.CustomerTextView
+    <com.cblue.ui.customerview.CustomerTextView
         android:id="@+id/myTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

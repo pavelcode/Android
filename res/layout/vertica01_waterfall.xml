@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context=".Vertical01_WaterFall_Activity" >
 
-    <com.cblue.waterfall.Vertical01_WaterFall 
+    <com.cblue.ui.waterfall.Vertical01_WaterFall 
         android:id="@+id/waterfall"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/touchevent_fl"
-    tools:context="com.cblue.touch.TouchEventActivity" >
+    tools:context="com.cblue.ui.touch.TouchEventActivity" >
 
    
 

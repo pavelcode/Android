@@ -90,97 +90,97 @@
 
         <!-- Control Start -->
         <activity
-            android:name="com.cblue.control.TextViewActivity"
+            android:name="com.cblue.ui.control.TextViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ButtonActivity"
+            android:name="com.cblue.ui.control.ButtonActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.EditTextActivity"
+            android:name="com.cblue.ui.control.EditTextActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ImageViewActivity"
+            android:name="com.cblue.ui.control.ImageViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ImageButtonActivity"
+            android:name="com.cblue.ui.control.ImageButtonActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.CheckBoxActivity"
+            android:name="com.cblue.ui.control.CheckBoxActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.RadioButtonActivity"
+            android:name="com.cblue.ui.control.RadioButtonActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ProgressBarActivity"
+            android:name="com.cblue.ui.control.ProgressBarActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.SeekBarActivity"
+            android:name="com.cblue.ui.control.SeekBarActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.RatingBarActivity"
+            android:name="com.cblue.ui.control.RatingBarActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ToggleButtonActivity"
+            android:name="com.cblue.ui.control.ToggleButtonActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ImageSwitchActivity"
+            android:name="com.cblue.ui.control.ImageSwitchActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.DatePickerActivity"
+            android:name="com.cblue.ui.control.DatePickerActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.TimePickerActivity"
+            android:name="com.cblue.ui.control.TimePickerActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.SpinnerActivity"
+            android:name="com.cblue.ui.control.SpinnerActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ScrollViewActivity"
+            android:name="com.cblue.ui.control.ScrollViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.widget.listview.ListViewActivity"
+            android:name="com.cblue.ui.listview.ListViewActivity"
             android:label="@string/app_name" >
         </activity>
        
     
         <activity
-            android:name="com.cblue.control.GridViewActivity"
+            android:name="com.cblue.ui.control.GridViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.ExpandableListViewActivity"
+            android:name="com.cblue.ui.control.ExpandableListViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.AutocompleteActivity"
+            android:name="com.cblue.ui.control.AutocompleteActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.MyViewActivity"
+            android:name="com.cblue.ui.control.MyViewActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.TabHostActivity1"
+            android:name="com.cblue.ui.control.TabHostActivity1"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.control.TabHostActivity2"
+            android:name="com.cblue.ui.control.TabHostActivity2"
             android:label="@string/app_name" >
         </activity>
 
@@ -244,27 +244,27 @@
 
         <!-- Dialog Start -->
         <activity
-            android:name="com.cblue.dialog.AlertDialogActivity"
+            android:name="com.cblue.ui.dialog.AlertDialogActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.dialog.DialogActivity"
+            android:name="com.cblue.ui.dialog.DialogActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.dialog.DateDialogActivity"
+            android:name="com.cblue.ui.dialog.DateDialogActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.dialog.TimeDialogActivity"
+            android:name="com.cblue.ui.dialog.TimeDialogActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.dialog.ProgressDialogActivity"
+            android:name="com.cblue.ui.dialog.ProgressDialogActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.dialog.SelfDialogActivity"
+            android:name="com.cblue.ui.dialog.SelfDialogActivity"
             android:label="@string/app_name" >
         </activity>
         <!-- Dialog End -->
@@ -272,7 +272,7 @@
 
         <!-- Menu Start -->
         <activity
-            android:name="com.cblue.menu.MenuActivity"
+            android:name="com.cblue.ui.menu.MenuActivity"
             android:label="@string/app_name" >
         </activity>
 
@@ -363,11 +363,11 @@
 
         <!-- PopWindow Start -->
         <activity
-            android:name="com.cblue.popwindow.PopWindowMenuAcitivity"
+            android:name="com.cblue.ui.popwindow.PopWindowMenuAcitivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.popwindow.PopWindowDialogAcitivity"
+            android:name="com.cblue.ui.popwindow.PopWindowDialogAcitivity"
             android:label="@string/app_name" >
         </activity>
 
@@ -389,7 +389,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.fragment.FragmentActivityDemo"
+            android:name="com.cblue.ui.fragment.FragmentActivityDemo"
             android:label="@string/app_name" >
         </activity>
         <!-- Fragment End -->
@@ -397,27 +397,27 @@
 
         <!-- Layout Start -->
         <activity
-            android:name="com.cblue.layout.LinerLayoutActivity"
+            android:name="com.cblue.ui.layout.LinerLayoutActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.layout.RelativeLayoutActvity"
+            android:name="com.cblue.ui.layout.RelativeLayoutActvity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.layout.FrameLayoutActivity"
+            android:name="com.cblue.ui.layout.FrameLayoutActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.layout.TabLayoutActivity"
+            android:name="com.cblue.ui.layout.TabLayoutActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.layout.AbsoluteLayoutActivity"
+            android:name="com.cblue.ui.layout.AbsoluteLayoutActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.layout.drwaerlayout.MainActivity"
+            android:name="com.cblue.ui.layout.drwaerlayout.MainActivity"
             android:label="@string/app_name" >
         </activity>
 
@@ -453,15 +453,15 @@
 
         <!-- Event Start -->
         <activity
-            android:name="com.cblue.event.ButtonEventActivity"
+            android:name="com.cblue.ui.event.ButtonEventActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.event.GestureEventActivity"
+            android:name="com.cblue.ui.event.GestureEventActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.event.TouchEventActivity"
+            android:name="com.cblue.ui.event.TouchEventActivity"
             android:label="@string/app_name" >
         </activity>
         <!-- Event End -->
@@ -469,11 +469,11 @@
 
         <!-- StatusBar Start -->
         <activity
-            android:name="com.cblue.statusbar.MyStatusBarActivity"
+            android:name="com.cblue.ui.statusbar.MyStatusBarActivity"
             android:label="@string/app_name" >
         </activity>
 
-        <service android:name="com.cblue.statusbar.MyStatusBarService" >
+        <service android:name="com.cblue.ui.statusbar.MyStatusBarService" >
         </service>
         <!-- StatusBar End -->
 
@@ -577,7 +577,7 @@
 
 
         <!-- AppWidget Start -->
-        <receiver android:name="com.cblue.widget.ExampleAppWidgetProvider" >
+        <receiver android:name="com.cblue.ui.widget.ExampleAppWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -596,11 +596,11 @@
 
         <!-- Notification Start -->
         <activity
-            android:name="com.cblue.notification.NotificationDemo01"
+            android:name="com.cblue.ui.notification.NotificationDemo01"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.notification.NotificationDemo02"
+            android:name="com.cblue.ui.notification.NotificationDemo02"
             android:label="@string/app_name" >
         </activity>
 
@@ -643,23 +643,23 @@
         <!-- Sqlite End -->
         <!-- Animation Start -->
         <activity
-            android:name="com.cblue.animation.TweenAnimationXML"
+            android:name="com.cblue.ui.animation.TweenAnimationXML"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.animation.TweenAnimationJava"
+            android:name="com.cblue.ui.animation.TweenAnimationJava"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.animation.FreamAnimationXML"
+            android:name="com.cblue.ui.animation.FreamAnimationXML"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.animation.FrameAnimationJava"
+            android:name="com.cblue.ui.animation.FrameAnimationJava"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.animation.BootAnimation"
+            android:name="com.cblue.ui.animation.BootAnimation"
             android:label="@string/app_name" >
         </activity>
         <!-- Animation End -->
@@ -694,18 +694,18 @@
 
         <!-- Time Start -->
         <activity
-            android:name="com.cblue.time.AlarmActivity"
+            android:name="com.cblue.ui.time.AlarmActivity"
             android:label="@string/app_name" >
         </activity>
 
-        <receiver android:name="com.cblue.time.AlarmBroadCast" >
+        <receiver android:name="com.cblue.ui.time.AlarmBroadCast" >
             <intent-filter>
                 <action android:name="com.cblue.time.alarmbroadcast" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name="com.cblue.time.TimerActivity"
+            android:name="com.cblue.ui.time.TimerActivity"
             android:label="@string/app_name" >
         </activity>
         <!-- Time End -->
