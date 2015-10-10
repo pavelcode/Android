@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+     <TextView 
+         android:id="@+id/tv1"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="90dp"
+         android:layout_marginLeft="15dp"
+         android:layout_marginRight="15dp"
+         android:text="step3"/>
+     <!-- 
+     <Button 
+         android:id="@+id/button"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:focusable="true" 
+         android:text="开始阅读"/>
+          -->
+     <Button
+         android:id="@+id/imageview_guide_button"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginTop="80dp"
+         android:text="跳转到主界面"
+         android:focusable="true"/>
+     
+
+</LinearLayout>

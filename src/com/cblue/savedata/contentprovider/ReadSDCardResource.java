@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 
 /**
+ * uri content://media/external/images/media
  * 讀取SDcard上的資源
  * @author Administrator
  *

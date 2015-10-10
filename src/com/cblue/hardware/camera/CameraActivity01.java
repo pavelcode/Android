@@ -18,7 +18,7 @@ import com.cblue.android.R;
 
 /**
  * 
- * 
+ * 内部，外部文件保存在 com.android.provider.media
  * 调用相机，得到拍摄的图片，显示在ImageView中
  * 第一种方式：拍照之后，得到数据流
  * @author Administrator

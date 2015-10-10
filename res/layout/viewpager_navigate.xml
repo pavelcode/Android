@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewPagerFragmentMain" >
+
+   <!--
+            fadingEdge属性用来设置拉滚动条时 ，边框渐变的放向。
+            none（边框颜色不变），
+            horizontal（水平方向颜色变淡），
+            vertical（垂直方向颜色变淡）。
+      
+            用来设置滚动条模式， 有四种选择：
+            ScrollBars.None （无滚动条）， 
+            ScrollBars.Horizontal（水平滚动条），
+            ScrollBars.Vertical（垂直滚动条），
+            ScrollBars.Both（水平和垂直滚动条）
+
+    -->Ï
+    <RelativeLayout 
+        android:id="@+id/nav_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2">
+        
+        
+        <com.cblue.ui.viewpager.ViewPagerFragmentNavigateHorizatalScrollView 
+            android:id="@+id/nav_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:fadingEdge="none"
+            android:scrollbars="none">
+            
+            <RelativeLayout
+                android:id="@+id/nav_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
+                
+                <RadioGroup 
+                    android:id="@+id/nav_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_alignParentTop="true"
+                    android:orientation="horizontal"
+                    ></RadioGroup>
+                
+                <ImageView 
+                    android:id="@+id/nav_indicator"
+                    android:layout_width="1dp"
+                    android:layout_height="3dp"
+                    android:background="#00ff00"
+                    android:layout_alignParentBottom="true"
+                    android:scaleType="matrix"/>
+                
+            </RelativeLayout>
+            
+        </com.cblue.ui.viewpager.ViewPagerFragmentNavigateHorizatalScrollView>
+        
+                <ImageView 
+                    android:id="@+id/nav_iv_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iv_navagation_scroll_left"
+                    android:visibility="gone"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"/>     
+                
+                <ImageView 
+                    android:id="@+id/nav_iv_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iv_navagation_scroll_right"
+                    android:visibility="visible"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            
+    </RelativeLayout>
+    
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_below="@id/nav_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center"
+                android:flipInterval="30"
+                android:persistentDrawingCache="animation"
+                />
+                
+            
+           
+
+</RelativeLayout>

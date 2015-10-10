@@ -58,6 +58,14 @@ public class CameraActivity03 extends Activity {
 	}
 	
 	
+	private void getImage(){
+		Intent intent = new Intent();
+		intent.setAction(Intent.ACTION_GET_CONTENT);
+		intent.setType("image/*");
+		startActivityForResult(intent, 100);
+	}
+	
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
