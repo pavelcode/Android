@@ -29,7 +29,7 @@ import com.cblue.android.R;
  * 
  */
 
-public class ListViewActivity extends Activity {
+public class ListView02Activity extends Activity {
 
 	private ListView listview;
 	ArrayAdapter<String> arrayAdapter;
@@ -93,7 +93,7 @@ public class ListViewActivity extends Activity {
 		}
 		 //创建适配器
 		 simpleAdapter = new SimpleAdapter(this, list,
-				 R.layout.listviewitem_show, new String[] {"content","image"}, new int[]{R.id.listview_textview,R.id.listview_imageview});
+				 R.layout.listviewitem_show2, new String[] {"content","image"}, new int[]{R.id.listview_textview,R.id.listview_imageview});
 		 		 
 		 //给listview设置适配器
 		 listview.setAdapter(simpleAdapter);
@@ -103,7 +103,7 @@ public class ListViewActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO Auto-generated method stub
-				Toast.makeText(ListViewActivity.this, list.get(position).get("content").toString(), Toast.LENGTH_LONG).show();
+				Toast.makeText(ListView02Activity.this, list.get(position).get("content").toString(), Toast.LENGTH_LONG).show();
 			}
 		});
 		

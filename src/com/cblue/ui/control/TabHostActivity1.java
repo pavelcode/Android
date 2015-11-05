@@ -1,8 +1,8 @@
 package com.cblue.ui.control;
 
 import com.cblue.android.R;
-import com.cblue.ui.listview.ListViewActivity;
-import com.cblue.ui.listview.ListViewPersonActivity;
+import com.cblue.ui.listview.ListView02Activity;
+import com.cblue.ui.listview.ListView03PersonActivity;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -51,13 +51,13 @@ public class TabHostActivity1 extends TabActivity {
 		tabHost.setup(this.getLocalActivityManager());
         //添加标签
 		tabHost.addTab(tabHost.newTabSpec("tabs1").setIndicator("indi1")
-				.setContent(new Intent(this, ListViewActivity.class)));
+				.setContent(new Intent(this, ListView02Activity.class)));
 		tabHost.addTab(tabHost.newTabSpec("tabs2").setIndicator("indi2")
-				.setContent(new Intent(this, ListViewPersonActivity.class)));
+				.setContent(new Intent(this, ListView03PersonActivity.class)));
 		tabHost.addTab(tabHost.newTabSpec("tabs3").setIndicator("indi3")
-				.setContent(new Intent(this, ListViewActivity.class)));
+				.setContent(new Intent(this, ListView02Activity.class)));
 		tabHost.addTab(tabHost.newTabSpec("tabs4").setIndicator("indi3")
-				.setContent(new Intent(this, ListViewPersonActivity.class)));
+				.setContent(new Intent(this, ListView03PersonActivity.class)));
         //选项卡修改监听
 		tabHost.setOnTabChangedListener(new OnTabChangeListener() {
 

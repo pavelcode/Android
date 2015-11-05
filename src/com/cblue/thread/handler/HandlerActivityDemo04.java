@@ -72,6 +72,7 @@ public class HandlerActivityDemo04 extends Activity {
 			myHandler.sendMessage(endMessage);
 			//myHandler.sendEmptyMessage(1);
 			
+			
 		}
 		
 	}

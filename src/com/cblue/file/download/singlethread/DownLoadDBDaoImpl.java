@@ -8,6 +8,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+/**
+ * 注意：每次操作完数据库都需要关闭
+ *      sqlite的事务
+ * @author pavel
+ *
+ */
 public class DownLoadDBDaoImpl implements DownLoadDBDao {
 	
 	private DownLoadDBHelper mDbHelper;
@@ -21,7 +27,28 @@ public class DownLoadDBDaoImpl implements DownLoadDBDao {
 		// TODO Auto-generated method stub
 		SQLiteDatabase db = mDbHelper.getWritableDatabase();
 		db.execSQL("insert into thread_info(thread_id,url,start_position,end_position,finished_position) values(?,?,?,?,?)",new Object[]{threadInfo.getId(),threadInfo.getUrl(),threadInfo.getStartPosition(),threadInfo.getEndPosition(),threadInfo.getFinishedPosition()});
-        db.close();
+		db.close();
+	}
+	
+	/**
+	 * 当对多个数据进行操作，添加事务
+	 * @param threadInfos
+	 */
+	public void insert(List<ThreadInfo> threadInfos){
+		SQLiteDatabase db = mDbHelper.getWritableDatabase();
+		db.beginTransaction();
+		try {
+			for(ThreadInfo threadInfo:threadInfos){
+			db.execSQL("insert into thread_info(thread_id,url,start_position,end_position,finished_position) values(?,?,?,?,?)",new Object[]{threadInfo.getId(),threadInfo.getUrl(),threadInfo.getStartPosition(),threadInfo.getEndPosition(),threadInfo.getFinishedPosition()});
+	        db.setTransactionSuccessful();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			
+		}finally{
+			db.endTransaction();
+		}
+		db.close();
 	}
 
 	@Override

@@ -29,14 +29,14 @@ import com.cblue.component.activity.LoginActivity;
 /**
  * 
  * ListView优化
+ * 使用scrollListener监听list滚动到最后加载数据，显示进度条
  * 
  * @author Administrator
  * 
  */
-public class ListViewOptimizeActivity extends Activity implements
+public class ListView05OptimizeActivity extends Activity implements
 		OnScrollListener {
 
-	
 	List<String> data;
 	ListView listView;
 	MyAdapter myAdapter;
@@ -44,7 +44,7 @@ public class ListViewOptimizeActivity extends Activity implements
 	View moreView;
 	ProgressBar moreProgressBar;
 	
-	public static final String TAG = ListViewOptimizeActivity.class
+	public static final String TAG = ListView05OptimizeActivity.class
 			.getSimpleName();
 
 	@Override
@@ -53,9 +53,7 @@ public class ListViewOptimizeActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listview);
 		listView = (ListView) findViewById(R.id.listView1);
-		myAdapter = new MyAdapter(ListViewOptimizeActivity.this,
-				getData());
-		
+		myAdapter = new MyAdapter(ListView05OptimizeActivity.this,getData());
 		//初始化底部布局
 		moreView = getLayoutInflater().inflate(R.layout.listview_more,null);
 		moreProgressBar = (ProgressBar)moreView.findViewById(R.id.more_progressBar);
@@ -63,13 +61,9 @@ public class ListViewOptimizeActivity extends Activity implements
 		//底部加上moreView，注意要放在setAdapter方法前
 		//listView.addHeaderView(v);
 		listView.addFooterView(moreView);
-
 		listView.setOnScrollListener(this);
 		listView.setAdapter(myAdapter);
 	}
-
-	
-	
 	
 	// 模拟数据
 	private List<Map<String, Object>> getData() {
@@ -95,7 +89,6 @@ public class ListViewOptimizeActivity extends Activity implements
 			this.data = data;
 		}
 
-		//
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
@@ -165,7 +158,7 @@ public class ListViewOptimizeActivity extends Activity implements
 				@Override
 				public void onClick(View v) {
 					// TODO Auto-generated method stub
-					Toast.makeText(ListViewOptimizeActivity.this,
+					Toast.makeText(ListView05OptimizeActivity.this,
 							"你点击了按钮" + tempPosition, Toast.LENGTH_LONG).show();
 				}
 			});
@@ -184,7 +177,6 @@ public class ListViewOptimizeActivity extends Activity implements
 
 	//最后可见的item索引
 	int lastVisibleIndex = 0;
-
     //是否需要加载数据
     boolean  loadData = false;
     /**
@@ -198,7 +190,6 @@ public class ListViewOptimizeActivity extends Activity implements
 			int visibleItemCount, int totalItemCount) {
 		// TODO Auto-generated method stub
 		//Item的索引是从0开始的，所以总数要减去一
-
 		lastVisibleIndex=firstVisibleItem+visibleItemCount-1;
 		Log.i(TAG, lastVisibleIndex+"*****"+(totalItemCount-1));
 		/* 
@@ -223,7 +214,6 @@ public class ListViewOptimizeActivity extends Activity implements
     /**
      * 滚动停止时回调
      */
-	//view 报告滑动状态的视图
 	//scrollState 滑动状态
 	// 回调顺序如下
 	// 第1次：scrollState = SCROLL_STATE_TOUCH_SCROLL(1) 正在滚动

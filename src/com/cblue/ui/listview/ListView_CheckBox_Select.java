@@ -33,6 +33,9 @@ import android.widget.TextView;
  */
 public class ListView_CheckBox_Select extends Activity {
 
+	
+	private TextView showSelectInfo;// 显示选择的信息
+	
 	private ListView mListView;
 	private MyAdapter mAdapter;
 	// 保存ListView中显示的数据
@@ -44,8 +47,7 @@ public class ListView_CheckBox_Select extends Activity {
 
 	// ListView选中的item数量
 	private int checkNum;
-
-	private TextView showSelectInfo;// 显示选择信息
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,7 @@ public class ListView_CheckBox_Select extends Activity {
 			public void onClick(View v) {
 				switch (v.getId()) {
 				case R.id.listview_checkbox_select_btn_selectall:
-					// 遍历list的长度，将MyAdapter中的map值全部设为true
+					// 全选，map值全部设为true
 					for (int i = 0; i < list.size(); i++) {
 						MyAdapter.getIsSelected().put(i, true);
 					}
@@ -82,7 +84,7 @@ public class ListView_CheckBox_Select extends Activity {
 					dataChanged(); // 刷新listview和TextView的显示
 					break;
 				case R.id.listview_checkbox_select_btn_deselectall:
-					// 遍历list的长度，将已选的设为未选，未选的设为已选
+					// 反选，将已选的设为未选，未选的设为已选
 					for (int i = 0; i < list.size(); i++) {
 						if (MyAdapter.getIsSelected().get(i)) {
 							MyAdapter.getIsSelected().put(i, false);
@@ -96,7 +98,7 @@ public class ListView_CheckBox_Select extends Activity {
 					dataChanged();
 					break;
 				case R.id.listview_checkbox_select_btn_cancelselect:
-					// 遍历list的长度，将已选的按钮设为未选
+					// 取消选择，将已选的按钮设为未选
 					for (int i = 0; i < list.size(); i++) {
 						if (MyAdapter.getIsSelected().get(i)) {
 							MyAdapter.getIsSelected().put(i, false);
@@ -112,7 +114,6 @@ public class ListView_CheckBox_Select extends Activity {
 			}
 		};
 		
-
 		// 全选按钮的回调接口
 		btnSelectAll.setOnClickListener(btnListener);
 		// 反选按钮的回调接口
@@ -213,7 +214,6 @@ class MyAdapter extends BaseAdapter {
 		if (convertView == null) {
 			// 获得ViewHolder对象
 			holder = new ViewHolder();
-
 			convertView = inflater.inflate(R.layout.listview_checkbox_select_item, null);
 			holder.tv = (TextView) convertView.findViewById(R.id.listview_checkbox_select_item_tv);
 			holder.cb = (CheckBox) convertView.findViewById(R.id.listview_checkbox_select_item_cb);

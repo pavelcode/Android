@@ -15,7 +15,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 /**
- * 
+ * ScrollView与ListView滚动冲突
  * 思路：首先演示ScrollView嵌套ListView,出现了滑动事件冲突（ListView显示不完全）
  *      添加设置ListView高度方法，让listView能够正常显示 
  * ScrollView和ListView冲突问题
@@ -57,7 +57,7 @@ public class ScrollView2ListView extends Activity {
 		for(int i=0;i<listAdapter.getCount();i++){
 			View itemView = listAdapter.getView(i, null, listView);
 			itemView.measure(0, 0);
-			totolHeigth += itemView.getMeasuredHeight();
+			totolHeigth += itemView.getMeasuredHeight();//TODO 这里不要写成getHeight()
 		}
 		ViewGroup.LayoutParams mLayoutParams = listView.getLayoutParams();
 		mLayoutParams.height = totolHeigth+(listView.getDividerHeight()*(listView.getCount()-1));

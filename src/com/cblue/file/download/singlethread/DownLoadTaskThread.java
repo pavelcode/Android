@@ -57,6 +57,7 @@ public class DownLoadTaskThread extends Thread {
 			   conn.setConnectTimeout(3*1000);
 			   long start = threadInfo.getStartPosition()+threadInfo.getFinishedPosition();
 			   Log.i("aaa", "start="+start);
+			   //设置线程下载文件的开始和结束位置
 			   conn.setRequestProperty("Range","byte="+start+"-"+threadInfo.getEndPosition());
 			 //设定文件写入位置
 			   File file = new File(DownLoadInitThread.SAVEFILE_PATH,fileInfo.getFileName());

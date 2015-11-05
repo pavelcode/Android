@@ -20,13 +20,14 @@ import com.cblue.android.R;
  * @author Administrator
  *
  */
-public class ListViewScrollActivity extends Activity{
+public class ListView04ScrollActivity extends Activity{
 
 	private ListView listview;
 	ArrayAdapter<String> arrayAdapter;
 	//是否加载新数据
-	boolean  addNewData = false;
-	public static final String TAG = ListViewScrollActivity.class.getName();
+	boolean  loadNewData = false;
+	private List<String> allData = new ArrayList<String>();
+	public static final String TAG = ListView04ScrollActivity.class.getName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -35,12 +36,9 @@ public class ListViewScrollActivity extends Activity{
 		
 		listview = (ListView)findViewById(R.id.listView1);
 		
-	    List<String> data = new ArrayList<String>();
-	    for(int i=0;i<30;i++){
-	    	data.add("aaa"+i);
-	    }
+	   
 	    
-	    arrayAdapter = new ArrayAdapter<String>(ListViewScrollActivity.this, android.R.layout.simple_list_item_1, data);
+	    arrayAdapter = new ArrayAdapter<String>(ListView04ScrollActivity.this, android.R.layout.simple_list_item_1,getData(""));
 		listview.setAdapter(arrayAdapter);
 		
 	    listview.setOnScrollListener(new OnScrollListener() {
@@ -55,19 +53,27 @@ public class ListViewScrollActivity extends Activity{
 				// TODO Auto-generated method stub
 				//Log.i(TAG, "scrollState="+scrollState);
 				//当数据已经显示到最下面，且滚动停止，这时候就需要下载新数据
-				if(addNewData && scrollState==OnScrollListener.SCROLL_STATE_IDLE){
+				if(loadNewData && scrollState==OnScrollListener.SCROLL_STATE_IDLE){
 					//下载新数据
-					Toast.makeText(ListViewScrollActivity.this, "开始下载数据", Toast.LENGTH_LONG).show();
+					Toast.makeText(ListView04ScrollActivity.this, "开始下载数据", Toast.LENGTH_LONG).show();
+					// arrayAdapter = new ArrayAdapter<String>(ListView04ScrollActivity.this, android.R.layout.simple_list_item_1, getData("new "));
+					//listview.setAdapter(arrayAdapter);
+					allData.addAll(getData("web"));
+					arrayAdapter.notifyDataSetChanged();
 				}
 				
 			}
+			
 			//滚动时一直回调，直到停止滚动时才停止回调。单击时回调一次
+			//scrollState 滑动状态
+			// 回调顺序如下
+			// 第1次：scrollState = SCROLL_STATE_TOUCH_SCROLL(1) 正在滚动
+			// 第2次：scrollState = SCROLL_STATE_FLING(2) 手指做了抛的动作（手指离开屏幕前，用力滑了一下）
+			// 第3次：scrollState = SCROLL_STATE_IDLE(0) 停止滚动
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
-				
-				addNewData =(firstVisibleItem+visibleItemCount==totalItemCount);
-				
+				loadNewData =(firstVisibleItem+visibleItemCount==totalItemCount);
 				// TODO Auto-generated method stub
 	/*			Log.i(TAG, "firstVisibleItem="+firstVisibleItem);
 				Log.i(TAG, "visibleItemCount="+visibleItemCount);
@@ -77,6 +83,14 @@ public class ListViewScrollActivity extends Activity{
 			}
 		});
 	   
+	}
+	
+	private List<String> getData(String param){
+		 List<String> data = new ArrayList<String>();
+		    for(int i=0;i<30;i++){
+		    	data.add(param+" "+"data"+i);
+		    }
+		    return data;
 	}
 
 }

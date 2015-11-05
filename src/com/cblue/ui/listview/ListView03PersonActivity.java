@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.cblue.android.R;
 
 /**
- * ListView显示对象的属性
+ * 自定义的ArrayAdapter
  * @author Administrator
  *
  */
-public class ListViewPersonActivity extends Activity {
+public class ListView03PersonActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

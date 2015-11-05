@@ -154,7 +154,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.ui.listview.ListViewActivity"
+            android:name="com.cblue.ui.listview.ListView02Activity"
             android:label="@string/app_name" >
         </activity>
        

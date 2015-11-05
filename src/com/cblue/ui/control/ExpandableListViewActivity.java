@@ -30,6 +30,7 @@ public class ExpandableListViewActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.control_expandablelistview);
+		
 		expandableListView = (ExpandableListView) findViewById(R.id.expandableList);
 		// 添加数据
 		initData();
