@@ -8,5 +8,5 @@
     <item android:drawable="@drawable/pic3" android:duration="200" />
     <item android:drawable="@drawable/pic4" android:duration="200" />
     <item android:drawable="@drawable/pic5" android:duration="200" />
-
+a
 </animation-list>

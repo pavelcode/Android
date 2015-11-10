@@ -18,7 +18,7 @@ import android.widget.ImageView;
  */
 public class FrameAnimationJava extends Activity {
 
-	ImageView iv;
+	ImageView iv; /*图片的宽高必须设定为固定高度*/
 	Button btn1, btn2;
 	AnimationDrawable ad;
 

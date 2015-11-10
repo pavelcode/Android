@@ -29,14 +29,14 @@ public class BootAnimation extends Activity {
 		AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f,1.0f);
 		alphaAnimation.setDuration(2000);
 		alphaAnimation.setRepeatCount(3);
-		//添加动画集合中
-		AnimationSet animationSet = new AnimationSet(false);
-		animationSet.addAnimation(alphaAnimation);
+		
 		//旋转动画
 		RotateAnimation rotateAnimation = new RotateAnimation(0, +300,Animation.RELATIVE_TO_SELF,Animation.RELATIVE_TO_SELF);
 		rotateAnimation.setDuration(3000);
 		rotateAnimation.setRepeatCount(5);
-		//添加到动画集合中
+		//添加动画集合中
+		AnimationSet animationSet = new AnimationSet(false);
+		animationSet.addAnimation(alphaAnimation);
 		animationSet.addAnimation(rotateAnimation);
 		//startAnimation比setAnimation更加通用
 		iv.startAnimation(animationSet);
