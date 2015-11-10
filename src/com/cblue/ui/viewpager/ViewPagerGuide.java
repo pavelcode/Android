@@ -2,14 +2,20 @@ package com.cblue.ui.viewpager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.cblue.android.R;
 
 
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -28,6 +34,7 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
 
 	private ImageView[] dots; // 底部小点图片
 	private int currentIndex; // 记录当前选中位置
+	private int currentPosition=0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +48,35 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
 	private void initView() {
 
 		LayoutInflater inflater = LayoutInflater.from(this);
-
 		views = new ArrayList<View>();
 		// 初始化引导图片列表
 		views.add(inflater.inflate(R.layout.viewpager_guide_step1, null));
 		views.add(inflater.inflate(R.layout.viewpager_guide_step2, null));
 		views.add(inflater.inflate(R.layout.viewpager_guide_step3, null));
-
 		// 初始化Adapter
 		vpAdapter = new ViewPagerGuideAdapter(views, this);
+		
 		vp = (ViewPager) findViewById(R.id.pager);
 		vp.setAdapter(vpAdapter);
 		// 绑定回调
 		vp.setOnPageChangeListener(this);
-
+	
+		//启动一个定时任务，在Handler中修改当前显示的Item
+		new Timer().schedule(new TimerTask() {		
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Log.i("aaa", "---run----");
+				 if(true){
+					 Log.i("aaa", "---sendEmptyMessageDelayed----");
+			        	handler.sendEmptyMessage(currentPosition);
+			        }		
+			}
+		}, 1000,2000);
 	}
+	
+	
+	
 
 	private void initDots() {
 		LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
@@ -100,8 +121,29 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
 
 	// 当新的页面被选中时调用
 	@Override
-	public void onPageSelected(int arg0) {
+	public void onPageSelected(int position) {
 		// 设置底部小点选中状态
-		setCurrentDot(arg0);
+		setCurrentDot(position);
+		currentPosition = position;
+       
+		
 	}
+	
+    Handler handler = new Handler(){
+		
+    	public void handleMessage(android.os.Message msg) {
+    		int position = msg.what;
+    		Log.i("aaa", "position="+position);
+    		 if((++position)>2){
+    			position=0;
+    			Log.i("aaa", "----");
+    		 } 
+    	     vp.setCurrentItem(position, true);
+    	};
+	};
+
+	
+	
+	
+	
 }
