@@ -18,7 +18,7 @@ import android.view.Menu;
 
 
 /**
- * 简单的实现Fragment的切换效果
+ * ViewPager+PagerStrip实现的Tab效果
  * @author pavel
  *
  */
