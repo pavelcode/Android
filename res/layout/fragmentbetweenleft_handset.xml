@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#00ff00"
+    tools:context=".FragmentBetweenActivity" >
+
+   
+        <Button 
+            android:id="@+id/left_btn01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题1"
+            />
+         <Button 
+            android:id="@+id/left_btn02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题2"
+            />
+         <Button 
+            android:id="@+id/left_btn03"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="标题3"
+            />
+         
+  
+</LinearLayout>
