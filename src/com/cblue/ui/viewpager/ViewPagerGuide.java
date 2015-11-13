@@ -7,8 +7,6 @@ import java.util.TimerTask;
 
 import com.cblue.android.R;
 
-
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -58,24 +56,33 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
 		
 		vp = (ViewPager) findViewById(R.id.pager);
 		vp.setAdapter(vpAdapter);
-		// 绑定回调
+		//添加监听
 		vp.setOnPageChangeListener(this);
-	
+		//vp.addOnPageChangeListener(this); 低版本已经过期
+		 
 		//启动一个定时任务，在Handler中修改当前显示的Item
 		new Timer().schedule(new TimerTask() {		
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				Log.i("aaa", "---run----");
-				 if(true){
-					 Log.i("aaa", "---sendEmptyMessageDelayed----");
-			        	handler.sendEmptyMessage(currentPosition);
-			        }		
+			    handler.sendEmptyMessage(currentPosition);		
 			}
-		}, 1000,2000);
+		},0,2000);
 	}
 	
-	
+     Handler handler = new Handler(){
+		
+    	public void handleMessage(android.os.Message msg) {
+    		int position = msg.what;
+    		Log.i("aaa", "position="+position);
+    		 if((++position)>2){
+    			position=0;
+    			Log.i("aaa", "----");
+    		 } 
+    	     vp.setCurrentItem(position, true);
+    	};
+	};
 	
 
 	private void initDots() {
@@ -129,18 +136,7 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
 		
 	}
 	
-    Handler handler = new Handler(){
-		
-    	public void handleMessage(android.os.Message msg) {
-    		int position = msg.what;
-    		Log.i("aaa", "position="+position);
-    		 if((++position)>2){
-    			position=0;
-    			Log.i("aaa", "----");
-    		 } 
-    	     vp.setCurrentItem(position, true);
-    	};
-	};
+    
 
 	
 	
