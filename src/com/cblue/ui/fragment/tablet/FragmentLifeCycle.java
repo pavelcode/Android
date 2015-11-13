@@ -1,4 +1,4 @@
-package com.cblue.ui.fragment;
+package com.cblue.ui.fragment.tablet;
 
 import com.cblue.android.R;
 

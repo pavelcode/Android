@@ -1,4 +1,4 @@
-package com.cblue.ui.fragment;
+package com.cblue.ui.fragment.tablet;
 
 import com.cblue.android.R;
 import android.app.Activity;
@@ -31,6 +31,7 @@ public class FragmentActivity01 extends Activity {
 		setContentView(R.layout.fragmentactivity01);
 		
 		mFrg_Activity_Btn01 = (Button)findViewById(R.id.frg_activity_btn01);
+		
 		mFragmentManager = getFragmentManager();
 		mFrg_Content = (ContentFragment01)mFragmentManager.findFragmentById(R.id.frg_content);
 		
