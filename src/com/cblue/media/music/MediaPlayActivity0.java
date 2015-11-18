@@ -21,6 +21,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
  * 
  * reset()让播放器从Error状态，恢复到空闲状态
  * 
+ * 
+ * OnCompletionListener  目前没什么用
  * @author Administrator
  * 
  */
@@ -38,6 +40,7 @@ public class MediaPlayActivity0 extends Activity implements OnClickListener,
 	private static boolean isPause = false; /* 是否正在播放 */
 	private int currentPosition = 0; /* 音乐当前位置 */
 	private static boolean isPull = false; /* 是否拖动进度条 */
+	private static boolean isFirst = true; //是否是第一次播放
 	private int currentSong = 0;
 
 	@Override
@@ -100,16 +103,20 @@ public class MediaPlayActivity0 extends Activity implements OnClickListener,
 		switch (v.getId()) {
 		case R.id.media_start:
 			Log.i("aaa", "media_start");
-			if (isPause) {
-				Log.i("aaa", "media_start_pause");
-				// mediaPlayer.reset();
-				mediaPlayer.seekTo(currentPosition);
-				mediaPlayer.start();
-				isPause = false;
-			} else {
+			//防止多次点击按钮，出现重复播放
+			if(isFirst){
 				playMusic(songs[currentSong]);
+			}else{			
+				if (isPause) {
+					Log.i("aaa", "media_start_pause");
+					// mediaPlayer.reset();
+					mediaPlayer.seekTo(currentPosition);
+					mediaPlayer.start();
+					isPause = false;
+				} else {
+					playMusic(songs[currentSong]);
+				}
 			}
-
 			break;
 
 		case R.id.media_stop:
@@ -184,6 +191,7 @@ public class MediaPlayActivity0 extends Activity implements OnClickListener,
 	private void playMusic(int song) {
 		try {
 			mediaPlayer = MediaPlayer.create(getApplicationContext(), song);
+			
 			mediaPlayer.setOnCompletionListener(this);
 			if (!mediaPlayer.isPlaying()) {
 				// mediaPlayer.prepare();
