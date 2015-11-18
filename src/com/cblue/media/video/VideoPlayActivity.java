@@ -20,12 +20,8 @@ import com.cblue.android.R;
 
  /**
   * 注释掉的：老罗写的，就是自己实现了一下《控制》，基本没什么用，只是这样写，就可以自定义操作
-  * 
-  * 4.2之前的版本，看不到视频图像
+  * 需要添加SDcard的读写权限
   * @author Administrator
-  *
-  *
-  *
   */
 
 
@@ -42,7 +38,7 @@ public class VideoPlayActivity extends Activity  {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.media_videoview);
 		videoView = (VideoView) findViewById(R.id.videoView);
-		// 添加控制器
+		// 使用系统自带的控制器
 	    controller = new MediaController(this);
 		videoView.setMediaController(controller);
 		//试过 不设置也可以成功

@@ -22,7 +22,7 @@ import android.widget.Button;
 import com.cblue.android.R;
 
 /**
- * 使用4.2版本可以显示图像
+ * 使用4.2版本可以显示图像,使用2.2.3不行
  * MediaPlayer+SurfaceHolder播放视频
  * MediaPlayer播放声音
  * SurfaceHolder播放图像
@@ -74,6 +74,7 @@ public class SurfaceViewPlayActivity extends Activity implements SurfaceHolder.C
 		// Surface类型 设置surfaceview不维护自己的缓冲区，而是等待屏幕的渲染引擎将内容推送到用户面前
 		// deprecated in API level 11. this is ignored, this value is set
 		// automatically when needed.
+		//网上信息说4.0之上就不需要设置了，自动设置 还没有试验过
 		mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
 		OnClickListener listener = new OnClickListener() {
@@ -146,7 +147,6 @@ public class SurfaceViewPlayActivity extends Activity implements SurfaceHolder.C
 			// mediaPlayer.reset();
 			// 设置播放的音乐流类型
 			mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-			
 			// 把视频图像输出到SurfaceView中
 			mediaPlayer.setDisplay(mSurfaceHolder);
 			// 设置需要播放的视频 播放声音
