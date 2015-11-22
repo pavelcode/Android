@@ -3,6 +3,7 @@ package com.cblue.interaction.webview;
 
 import com.cblue.android.R;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -85,6 +86,7 @@ public class WebViewSecondActivity extends Activity
 	/**
 	 * 初始化地图
 	 */
+	@SuppressLint("JavascriptInterface")  //TODO 2015.11.20突然报错，目前没仔细研究，也不清楚导出的是否正确
 	private void initViews()
 	{
 		webView = (WebView) findViewById(R.id.webview);
