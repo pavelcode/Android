@@ -97,6 +97,7 @@ public class MyBinderServiceActivity extends Activity {
 		@Override
 		public void onServiceDisconnected(ComponentName name) {
 			// TODO Auto-generated method stub
+			//这个方法只有Service异常销毁时（内存不足），才会被调用
 			Log.i(TAG, "MyServiceConnetion-->onServiceDisconnected");
 
 		}
