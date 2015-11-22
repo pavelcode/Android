@@ -44,7 +44,7 @@ public class CameraActivity03 extends Activity {
 				Intent intent = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 				  // 设置裁剪  
 	            intent.putExtra("crop", "true");  
-	            // aspectX aspectY 是宽高的比例  
+	            // aspectX aspectY 剪裁的宽高比例 1:1
 	            intent.putExtra("aspectX", 1);  
 	            intent.putExtra("aspectY", 1);  
 	            // outputX outputY 是裁剪图片宽高  
