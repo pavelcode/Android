@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <TextView 
+        android:id="@+id/play_tv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:textSize="30sp"
+        android:text="歌曲"/>
+    
+    
+    <ImageView 
+        android:id="@+id/play_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher"/>
+    
+   <LinearLayout 
+       android:layout_height="wrap_content"
+       android:layout_width="match_parent"
+       android:orientation="horizontal">
+       <TextView 
+           android:id="@+id/time01"
+            android:layout_weight="1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+   
+           android:text="0.0"/>
+    <SeekBar android:id="@+id/play_sb"
+        android:layout_weight="5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <TextView 
+           android:id="@+id/time02"
+            android:layout_weight="1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+        
+           android:text="9.0"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <Button 
+            android:id="@+id/btn_play"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="播放"/>
+        
+         <Button 
+            android:id="@+id/btn_pause"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="暂停"/>
+         
+         
+          <Button 
+            android:id="@+id/btn_stop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="停止"/>
+        
+        
+    </LinearLayout>
+    
+
+</LinearLayout>
