@@ -91,7 +91,7 @@ public class WebServiceActivity extends Activity {
 		// 调用的方法名称
 		String methodName = "getMobileCodeInfo";
 		// WSDL文档的URL
-		String WSDLUrl = "http://webservice.webxml.com.cn/webservices/qqOnlineWebService.asmx";
+		String WSDLUrl = "http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx";
 		// SOAP Action 命名空间+调用的方法名称
 		String soapAction = "http://WebXml.com.cn/getMobileCodeInfo";
 		
@@ -110,7 +110,7 @@ public class WebServiceActivity extends Activity {
 		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
 		// 等价于 envelope.setOutputSoapObject(soapObject);
 		envelope.bodyOut = soapObject;
-		// 设定是否调用的是dotNet开发的WebService
+		// 设定是否调用的是dotNet开发的WebServiceH
 		envelope.dotNet = true;
 
 		// 设定WebService的WSDL文档的URL
@@ -124,7 +124,7 @@ public class WebServiceActivity extends Activity {
 			// Log.i("aaa", "-----"+object);
 			// 获取返回的结果
 			//SoapObject resultSoapObject = (SoapObject) envelope.getResponse();  
-			//object.getProperty("qqCheckOnlineResult");
+			//object.getProperty("qqCheckOnlinenResult");
 			String result = object.getProperty(0).toString();
 			Log.i("aaa", "-----" + result);
 			Message message = Message.obtain();
