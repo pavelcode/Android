@@ -13,6 +13,7 @@ import com.cblue.android.R;
 
 /**
  * 使用代码进行注册和取消注册广播接收器
+ * 广播必须有action
  * @author Administrator
  *
  */
