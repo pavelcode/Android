@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 以此文件为imageview的背景，每个drawable设置 android:useLevel="true" 得到控件的drawable对象，设置level，调用不同drawble  -->
+<!-- 此文件没有成功，先不讲 -->
+<level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:minLevel="0" android:maxLevel="10" android:drawable="@drawable/shape1" />  
+    <item android:minLevel="11" android:maxLevel="20" android:drawable="@drawable/shape2"/>
+    <item android:minLevel="21" android:maxLevel="30" android:drawable="@drawable/shape3"/>
+</level-list>
