@@ -23,13 +23,23 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+/**
+ * 
+ * 首先启动一个线程
+ * 线程中使用内部Handler
+ * 当我们点击按钮的时候，发送信息给内部Handler，执行写操作
+ * 线程中创建子线程，进行读操作，读到内容，发送给主线程的Handler
+ * 
+ * @author pavel
+ *
+ */
 public class SocketDemo04Client extends Activity {
 	
-    EditText et;   
-    Button btn;  
+    private EditText et;   
+    private Button btn;  
     private TextView tv;
-    Handler handler;  
-    // �����������ͨ�ŵ����߳�  
+    
+    Handler receiveHandler;  
     MyClientThread clientThread;  
   
     @Override  
@@ -41,32 +51,31 @@ public class SocketDemo04Client extends Activity {
         tv=(TextView)findViewById(R.id.socket_client_demo04_tv);
         
         
-        handler = new Handler() {  
+        receiveHandler = new Handler() {  
             @Override  
             public void handleMessage(Message msg) {  
-                // �����Ϣ�������߳�  
+                //得到客户端发送给服务端的数据
                 if (msg.what == 0x123) {  
-                    // ����ȡ������׷����ʾ���ı�����  
                     tv.append("\n" + msg.obj.toString());  
                 }  
             }  
         };  
         
-     // �ͻ�������ClientThread�̴߳����������ӡ���ȡ���Է����������  
-        clientThread = new MyClientThread(handler);  
+     //启动线程进行读取操作
+        clientThread = new MyClientThread(receiveHandler);  
         new Thread(clientThread).start();  
         
+        //点击按钮把本地信息发送给服务端
         btn.setOnClickListener(new OnClickListener() {  
       	  
             @Override  
             public void onClick(View v) {  
-                try {  
-                    // ���û����°�ť֮�󣬽��û��������ݷ�װ��Message  
-                    // Ȼ���͸����߳�Handler  
+                try {
+                	
                     Message msg = new Message();  
                     msg.what = 0x345;  
                     msg.obj = et.getText().toString();  
-                    clientThread.revHandler.sendMessage(msg);  
+                    clientThread.sendHandler.sendMessage(msg);  
                     et.setText("");  
   
                 } catch (Exception e) {  
@@ -79,43 +88,45 @@ public class SocketDemo04Client extends Activity {
     }  
 
 }
+
+
+
 class MyClientThread implements Runnable {  
-    private Socket s;  
+	
+    private Socket client;  
+     
+    //接收消息的Handler
+    Handler receiveHandler;  
     
-    // ������UI�̷߳�����Ϣ��Handler����  
-    Handler handler;  
-    // �������UI�̵߳�Handler����  
-    Handler revHandler;  
+    //发送消息的Handler
+    Handler sendHandler;  
+     
     
-    // ���̴߳���Socket����õ����������  
-    BufferedReader br = null; 
-    OutputStream os = null;  
+    BufferedReader bufferedReader = null; 
+    OutputStream outputStream = null;  
   
-    public MyClientThread(Handler handler) {  
-        this.handler = handler;  
+    public MyClientThread(Handler receiveHandler) {  
+        this.receiveHandler = receiveHandler;  
     }  
   
     @Override  
     public void run() {  
         try {  
+        	client = new Socket("169.254.68.122",7000);
+        	bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));  
+        	outputStream = client.getOutputStream();  
            
-        	s = new Socket("10.211.55.8",7000);
-            br = new BufferedReader(new InputStreamReader(s.getInputStream()));  
-            os = s.getOutputStream();  
-            // ����һ�����߳�����ȡ��������Ӧ�����  
+        	//创建一个线程去不断的读取服务端发送的信息，一旦读取成功，就发送消息显示在界面中
             new Thread() {  
                 @Override  
                 public void run() {  
-                    String content = null;  
-                    // ���ϵĶ�ȡSocket������������  
+                    String content = null;    
                     try {  
-                        while ((content = br.readLine()) != null) {  
-                            // ÿ����ȡ�����Է����������֮�󣬷��͵���Ϣ֪ͨ����  
-                            // ������ʾ�����  
+                        while ((content = bufferedReader.readLine()) != null) {
                             Message msg = new Message();  
                             msg.what = 0x123;  
                             msg.obj = content;  
-                            handler.sendMessage(msg);  
+                            receiveHandler.sendMessage(msg);  
                         }  
                     } catch (IOException io) {  
                         io.printStackTrace();  
@@ -123,18 +134,21 @@ class MyClientThread implements Runnable {
                 }  
   
             }.start();  
-            // Ϊ��ǰ�̳߳�ʼ��Looper  
+            
+         
+            /**
+             * 线程中使用消息队列
+             * 
+             */
             Looper.prepare();  
             
-            // ����revHandler����  
-            revHandler = new Handler() {  
+            //接收客户端的信息，发送给服务端
+            sendHandler = new Handler() {  
                 @Override  
                 public void handleMessage(Message msg) {  
-                    // ���յ�UI�̵߳����û���������  
-                    if (msg.what == 0x345) {  
-                        // ���û����ı������������д������  
+                    if (msg.what == 0x345) { 
                         try {  
-                            os.write((msg.obj.toString() + "\r\n")  
+                        	outputStream.write((msg.obj.toString() + "\r\n")  //必须加上 \r\n
                                     .getBytes("gbk"));  
                         } catch (Exception e) {  
                             e.printStackTrace();  
@@ -143,11 +157,12 @@ class MyClientThread implements Runnable {
                 }  
   
             };   
-            // ����Looper  
+            
             Looper.loop();  
+            
   
         } catch (SocketTimeoutException e) {  
-        	 Log.i("aaa","����������ʧ�ܣ����������Ƿ��");  
+        	 Log.i("aaa","Socket连接超时");   
         } catch (IOException io) {  
             io.printStackTrace();  
         }  

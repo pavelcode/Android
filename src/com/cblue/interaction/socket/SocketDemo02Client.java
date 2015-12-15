@@ -10,6 +10,7 @@ import java.net.Socket;
 
 import com.cblue.android.R;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,32 +56,16 @@ public class SocketDemo02Client extends Activity {
 						String value = editText.getText().toString();
 						Log.i("aaa", "客户端发送的内容是："+value);
 						try {
-						client = new Socket("10.211.55.8",4888);
+						client = new Socket("169.254.232.143",8888);
 						
-						BufferedReader buf = new BufferedReader(
-								new InputStreamReader(client
-										.getInputStream()));
 						//向服务端发送信息
 						OutputStream outputStream = client.getOutputStream();
 						DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 						dataOutputStream.write(value.getBytes());
 						dataOutputStream.flush();
-						
-					
-						// 得到从服务端发送信息
-						Log.i("aaa", "1111");
-						Log.i("aaa", "input.read()="+buf.read());
-						/*String line = null;  
-		                String buffer="";  
-		                while ((line = bff.readLine()) != null) {  
-		                    buffer = line + buffer;  
-		                    Log.i("aaa", "line="+line);
-		                }  */
-		                Log.i("aaa", "222");
-						//buf.close();
-						
-		               // outputStream.close();
-		                //client.close();
+		                outputStream.close();
+		                
+		                client.close();
 						
 						
 					} catch (Exception e) {

@@ -11,35 +11,25 @@ import java.util.List;
 
 public class SocketDemo04Server {
 	
-	// ���屣�����е�Socket  
-   // public static List<Socket> socketList = new ArrayList<Socket>();  
-  
-    public static void main(String[] args) throws IOException {  
+	public static void main(String[] args) throws IOException {  
         ServerSocket server = new ServerSocket(7000);  
         while(true){  
-            Socket s=server.accept();  
-           // socketList.add(s);  
-            //ÿ���ͻ�������֮������һ��ServerThread�߳�Ϊ�ÿͻ��˷���  
-            new Thread(new ServiceThreada(s)).start();     
+            Socket client=server.accept();
+            new Thread(new ServiceThreada(client)).start();     
         }  
     }  
-  
-
 }
 
 class ServiceThreada implements Runnable {  
-	  
-    // ���嵱ǰ�̴߳����Socket  
-    Socket s = null;  
-    // ���߳������Socket���Ӧ��������  
+	   
+    Socket client = null; 
     BufferedReader br = null;  
   
-    public ServiceThreada(Socket s) {  
-        this.s = s;  
+    public ServiceThreada(Socket client) {  
+        this.client = client;  
         try {
-			br = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			br = new BufferedReader(new InputStreamReader(client.getInputStream()));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
         
@@ -48,39 +38,28 @@ class ServiceThreada implements Runnable {
     public void run() {  
   
         String content = null;  
-        //����ѭ�����ϵĴ�Socket�ж�ȡ�ͻ��˷��͹��������  
+        OutputStream  os = null;
         try {
 			while((content=br.readLine())!=null){  
-			    //����socketList�е�ÿ��Socket  
-			    //����ȡ��������ÿ����Socket����һ��  
-			  //  for(Socket s:AndroidService01.socketList){  
-			        //OutputStream os;  
-			        try {  
-			        	System.out.println("�ӿͻ��õ����ݣ�"+content);
-			        	OutputStream  os = s.getOutputStream();  
-			            os.write(("echo:"+content+"\n").getBytes("gbk"));  
-			        } catch (IOException e) {  
-			            // TODO Auto-generated catch block  
-			            e.printStackTrace();  
-			        }  
-			          
-			  //  }  
+			      System.out.println("得到客户端的内容："+content);
+			      //把服务端的内容发送给客户端
+			      os = client.getOutputStream();  
+			      os.write(("echo:"+content+"\n").getBytes("gbk"));   //\n必须添加
+			      os.flush();
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}  
-  
-    }  
-  
-    // �����ȡ�ͻ��˵���Ϣ  
-    public String readFromClient() {  
-        try {  
-            return br.readLine();  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        return null;  
+		}finally{
+			if(os!=null){
+				try {
+					os.close();
+				} catch (Exception e2) {
+					// TODO: handle exception
+				}
+				
+			}
+		}
     }  
   
 }  

@@ -10,6 +10,7 @@ import java.net.SocketTimeoutException;
 
 import com.cblue.android.R;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,15 +23,20 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+/**
+ * 能正常接收到客户端和服务端的交互 但是服务端数据需要先发送，这跟我们需要根据发送的内容反馈不符
+ * 不要讲
+ * @author pavel
+ *
+ */
 public class SocketDemo03Client extends Activity {
 	
 	 
-	Button btn;  
-    EditText et;  
+	private Button btn;  
+    private EditText et;  
     
-    String str;  
-    
-    Socket client = null;  
+    private String str;  
+    private Socket client = null;  
  
   
     @Override  
@@ -44,8 +50,7 @@ public class SocketDemo03Client extends Activity {
             @Override  
             public void onClick(View v) {  
                 str = et.getText().toString();  
-                Log.i("aaa", "��ͻ��˷��͵���Ϣ��"+str);
-                //�����߳� ����������ͺͽ�����Ϣ  
+                Log.i("aaa", "发送给客户端的数据是："+str); 
                 new MyThread(str).start();  
             }  
         });  
@@ -63,32 +68,29 @@ public class SocketDemo03Client extends Activity {
         @Override  
         public void run() {  
   
-            try {  
-                //���ӷ����� ���������ӳ�ʱΪ5��  
-                client = new Socket("10.211.55.8", 7000);          
-                //��ȡ���������  
-                OutputStream output = client.getOutputStream();  
+            try {   
+                client = new Socket("169.254.232.143", 7888);          
+                
+              //读取服务端发送的数据
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(client.getInputStream()));  
-               
-                //��ȡ������������Ϣ  
                 String line = null;  
                 StringBuffer stringBuffer =new StringBuffer();
                 while ((line = bufferedReader.readLine()) != null) { 
                 	stringBuffer.append(line);
                 }  
-                Log.i("aaa", "�õ�����˷��͵���Ϣ:"+stringBuffer.toString());
-                //�������������Ϣ  
-               // ou.write("android �ͻ���".getBytes("gbk"));  
+                Log.i("aaa", "得到服务端发送的数据:"+stringBuffer.toString());
+                
+                
+              //向服务端发送数据
+                OutputStream output = client.getOutputStream();  
                 output.write(content.getBytes("gbk"));
                 output.flush();  
-                
-                //�ر���  
+                //关闭流 
                 bufferedReader.close();  
                 output.close();  
                 client.close();  
             } catch (SocketTimeoutException aa) {  
-                //���ӳ�ʱ 
-                Log.i("aaa","����������ʧ�ܣ����������Ƿ��");  
+                Log.i("aaa","Socket连接超时");  
             } catch (IOException e) {  
                 e.printStackTrace();  
             }  

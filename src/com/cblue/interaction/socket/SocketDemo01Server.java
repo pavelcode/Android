@@ -5,20 +5,20 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 实现Socket服务端发送数据给客户端
+ * @author pavel
+ *
+ */
 public class SocketDemo01Server {
 
-	/**
-	 * 渚嬪瓙1
-	 * @param 缃戠粶缂栫▼
-	 * cmd/telnet  
-	 * 杩炴帴 open IP鍦板潃  绔彛锛氬悜瀹㈡埛绔櫒绔紶閫掓暟鎹�
-	 */
+
 	public static void main(String[] args) throws Exception {
-		// 鍒涘缓涓�釜鏈嶅姟绔紝鐩戝惉鍦�888绔彛
-		ServerSocket server = new ServerSocket(7888);  
-		//涓�釜Socket浠ｈ〃涓�釜杩炴帴瀵硅薄锛�绛夊緟瀹㈡埛绔繛鎺�
+		//创建Socket服务端，端口是7888
+		ServerSocket server = new ServerSocket(8888);  
+		//等待连接的客户端
 		Socket client = server.accept();
-		//寰楀埌鍚戝鎴风杈撳嚭娴�
+		//得到客户端的输出流
 		OutputStream out = client.getOutputStream();
 		PrintWriter printWrite = new PrintWriter(out);
 		printWrite.print("hello");

@@ -6,6 +6,7 @@ import java.net.Socket;
 
 import com.cblue.android.R;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 /**
- * 简单的连接客户端，得到服务端发送给客户端数据
+ * 服务端发送数据给客户端
  * 
  * 注意 1.添加网络权限 2. android4.4之后，就必须使用线程访问网络操作
  * 
@@ -42,7 +43,7 @@ public class SocketDemo01Client extends Activity {
 					public void run() {
 						try {
 							// TODO Auto-generated method stub
-							Socket client = new Socket("10.211.55.8", 8888);
+							Socket client = new Socket("169.254.232.143", 8888);
 							// 得到从服务端接收信息
 							BufferedReader buf = new BufferedReader(
 									new InputStreamReader(client
