@@ -1,5 +1,6 @@
 ﻿package com.cblue.interaction.http;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -10,15 +11,18 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+
+import android.util.Log;
 
 
 
 /**
  * 以同步方式发送Http请求
  */
-public class ApacheHttpClient
+public class HttpClientApacheDemo
 {
 	/**
 	 * 以Get方式发送请求
@@ -57,11 +61,11 @@ public class ApacheHttpClient
 	/**
 	 * 以Post方式发送请求
 	 * @param url 请求地址
-	 * @param params 参数 ，Post方式必须用NameValuePair[]阵列储存参数
+	 * @param params 参数  content=111&content1=222
 	 * @return
 	 * @throws Exception
 	 */
-	public String httpPost(String url, List<NameValuePair> params) throws Exception
+	public String httpPost(String url,String params) throws Exception
 	{
 		String response = null;
 		HttpClient httpclient = new DefaultHttpClient();
@@ -69,8 +73,9 @@ public class ApacheHttpClient
 		HttpPost httppost = new HttpPost(url);
 		try
 		{
+			List<NameValuePair> list = getParam(params);
 			//设置httpPost请求参数
-			httppost.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));
+			httppost.setEntity(new UrlEncodedFormEntity(list,HTTP.UTF_8));
 			//使用execute方法发送HTTP Post请求，并返回HttpResponse对象
 			HttpResponse httpResponse = httpclient.execute(httppost);
 			int statusCode = httpResponse.getStatusLine().getStatusCode();
@@ -88,5 +93,26 @@ public class ApacheHttpClient
 			e.printStackTrace();
 		}
 		return response;
+	}
+	
+	
+	/**
+	 *把参数转化为List<NameValuePair> 形式
+	 * @param param
+	 * @return
+	 */
+	private List<NameValuePair> getParam(String param){
+		List<NameValuePair> list = new ArrayList<NameValuePair>();
+		String[] nameValuePairs = param.split("&");
+		for(int i=0;i<nameValuePairs.length;i++){
+			String[] nameValue= nameValuePairs[i].split("=");
+			String name = nameValue[0];
+			String value = nameValue[1];
+			Log.i("aaa", "name="+name+";value="+value);
+			BasicNameValuePair basicNameValuePair = new BasicNameValuePair(name, value);
+			list.add(basicNameValuePair);
+		}
+		return list;
+		
 	}
 }
