@@ -1,4 +1,4 @@
-package com.cblue.interaction.webview;
+package com.cblue.ui.webview;
 
 import com.cblue.android.R;
 
@@ -9,7 +9,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 /**
- * 1 webview显示网页 
+ * 1 webview加载页面的两种方式 加载URL（loadUrl）  加载代码（loadData） 
  * 2 webview显示html代码
  * 3 给webview设置放大、缩小按钮
  * 
@@ -39,7 +39,7 @@ public class WebViewActivity1 extends Activity {
 		//2 加载html代码
 		 String summary = "<html>我试试是但是的</html>";
 		 mWebView.loadDataWithBaseURL(null,summary, "text/html","utf-8", null);
-		//设置一个webView客户端，web会在本Activity中打开，否在会启动默认游览器
+		//设置一个webView客户端，打开连接，不会启动默认游览器
 		mWebView.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {

@@ -1,4 +1,4 @@
-package com.cblue.interaction.webview;
+package com.cblue.ui.webview;
 
 
 import com.cblue.android.R;

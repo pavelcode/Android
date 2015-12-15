@@ -1,4 +1,4 @@
-package com.cblue.interaction.webview;
+package com.cblue.ui.webview;
 
 import com.cblue.android.R;
 
@@ -22,7 +22,7 @@ public class WebViewFirstActivity extends Activity
 		mWebView = (WebView) findViewById(R.id.webview);
 
 		mWebView.getSettings().setJavaScriptEnabled(true);   
-		mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);   
+		mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);   //滚动条不占位置
 		mWebView.setHorizontalScrollBarEnabled(false);   
 		mWebView.getSettings().setSupportZoom(true);   
 		mWebView.getSettings().setBuiltInZoomControls(true);   
