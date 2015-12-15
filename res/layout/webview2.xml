@@ -1,36 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:orientation="vertical"
+    tools:context=".MainActivity" >
 
-    <EditText 
-        android:id="@+id/webview_weburl"
+    
+    <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+       <EditText 
+        android:id="@+id/webview_weburl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:hint="输入url"/>
+       
+       <Button 
+           android:id="@+id/webview_btn"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_weight="1"
+           android:text="访问"/>
+        
+        
+    </LinearLayout>
+   
     
     
     
     <LinearLayout 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <Button 
             android:id="@+id/webview_btn1"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="后退"
             android:layout_height="wrap_content"/>
         
         <Button 
             android:id="@+id/webview_btn2"
-            android:layout_width="wrap_content"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="前进"
             android:layout_height="wrap_content"/>
         
         <Button 
             android:id="@+id/webview_btn3"
-            android:layout_width="wrap_content"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="放大"
             android:layout_height="wrap_content"/>
         
         <Button 
             android:id="@+id/webview_btn4"
-            android:layout_width="wrap_content"
+             android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="缩小"
             android:layout_height="wrap_content"/>
     </LinearLayout>
     
@@ -41,4 +71,4 @@
         android:layout_height="match_parent"/>
    
 
-</RelativeLayout>
+</LinearLayout>
