@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 
 /**
  * ViewPager实现引导界面效果
+ * 实现自动循环
  * 
  * @author pavel
  * 
