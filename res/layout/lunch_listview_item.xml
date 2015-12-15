@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <ImageView 
+        android:id="@+id/lunch_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_launcher"/>
+    
+    
+    <TextView android:id="@+id/lunch_tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textSize="20sp"
+        android:text="aaa"
+        android:layout_toRightOf="@id/lunch_iv"/>
+    
+    <TextView 
+        android:id="@+id/lunch_tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/lunch_iv"
+        android:layout_marginLeft="30dp"
+        android:textSize="15sp"
+        android:layout_below="@id/lunch_tv1"
+        android:text="bbb"/>
+    
+
+</RelativeLayout>
