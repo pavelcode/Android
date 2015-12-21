@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cblue.bluetooth.BluetoothActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#ff0000"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/hasBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="本机是否支持蓝牙" />
+
+        <Button
+            android:id="@+id/openBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开蓝牙" />
+        
+        <Button
+            android:id="@+id/scanBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描蓝牙" />
+        
+        <LinearLayout 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <EditText android:id="@+id/msg_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="蓝牙是否收到？"/>
+             <Button android:id="@+id/msg_btn"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="发送"/>
+        </LinearLayout>
+        
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#00ff00"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="已经配对的蓝牙设备" />
+
+        <ListView
+            android:id="@+id/pairedBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+    </LinearLayout>
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#0000ff"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="未配对的蓝牙设备" />
+
+        <ListView
+            android:id="@+id/unpairedBluetooth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>
