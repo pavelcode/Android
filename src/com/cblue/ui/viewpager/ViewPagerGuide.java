@@ -22,7 +22,8 @@ import android.widget.LinearLayout;
 /**
  * ViewPager实现引导界面效果
  * 实现自动循环
- * 
+ * 这个代码也实现了无线自动循环效果，只是在循环跳转到最后一个界面的时候，出现了重新调到第一个界面，效果不够平滑
+ * 如果需要平滑的自动循环效果，可以使用ViewPagerInfiniteLoop01
  * @author pavel
  * 
  */
@@ -77,7 +78,7 @@ public class ViewPagerGuide extends Activity implements OnPageChangeListener {
     	public void handleMessage(android.os.Message msg) {
     		int position = msg.what;
     		Log.i("aaa", "position="+position);
-    		 if((++position)>2){
+    		 if((++position)>2){ // 这个位置容易出错，是++position,不是position++
     			position=0;
     			Log.i("aaa", "----");
     		 } 
