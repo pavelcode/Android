@@ -9,59 +9,88 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 
 /**
- * 设置ViewPager有无限大的值，当一个值累加的时候，它的余数是图片个数的范围（0到图片个数的累加）
+ * 比较平滑的自动滑动效果
+ * 2 0 1 2 0
+ * 给ViewPager前后多添加两个View，当跳转到第一个，就跳转到末尾图片，当跳转到最后一个，就跳转到首图片
  * @author pavel
  *
  */
-public class ViewPagerInfiniteLoop01 extends Activity {
-
-	private ViewPager mViewPager;
-	private int [] images ={R.drawable.a,R.drawable.c,R.drawable.d,R.drawable.f};
-	private List<ImageView> views;  //保存所有图片控件
-    
+public class ViewPagerInfiniteLoop01 extends Activity implements OnPageChangeListener {
+	
+	private ViewPager viewPager;
+	private List<ImageView> views;
+	private int pic[]={R.drawable.a,R.drawable.c,R.drawable.d};
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.viewpager_infiniteloop);
-		mViewPager = (ViewPager) findViewById(R.id.viewpager_infiniteloop);
-		initImageViews();
-		
-		mViewPager.setAdapter(new ViewPagerAdapter());
-		mViewPager.setCurrentItem(500);
-		
+		viewPager = (ViewPager) findViewById(R.id.viewpager_infiniteloop);
+		initImageView();
+		viewPager.setAdapter(new ViewPagerAdapter());
+		viewPager.setOnPageChangeListener(this);
+		viewPager.setCurrentItem(1);
 	}
 
 
-	/**
-	 * 初始化图片的ImageView视图
-	 */
-	private void initImageViews() {
+	private void initImageView() {
 		// TODO Auto-generated method stub
 		views = new ArrayList<ImageView>();
-		for(int i=0;i<images.length;i++){
+		int length = pic.length+2;//给ViewPager添加两个View空间
+		for(int i=0;i<length;i++){
 			ImageView imageView = new ImageView(this);
-			ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-			imageView.setLayoutParams(layoutParams);
-			imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-			imageView.setImageResource(images[i]);
-			views.add(imageView);
+			ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		    imageView.setLayoutParams(layoutParams);
+		    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+		    views.add(imageView);
 		}
+		
 	}
 	
 	class ViewPagerAdapter extends PagerAdapter{
 
+		
+		@Override
+		public Object instantiateItem(ViewGroup container, int position) {
+			// TODO Auto-generated method stub
+			Log.i("aaa",position+"");
+			if(position==0){
+				//如果是第一个位置，默认选择第三张图片
+				views.get(position).setImageResource(pic[2]);
+			}else if(position==(views.size()-1)){
+				//如果是最后一个位置，默认选择第一张图片
+				views.get(position).setImageResource(pic[0]);
+			}else {
+				views.get(position).setImageResource(pic[position-1]);
+			}
+			container.addView(views.get(position));	
+			return views.get(position);
+		}
+		
+		@Override
+		public void destroyItem(ViewGroup container, int position, Object object) {
+			// TODO Auto-generated method stub
+			//super.destroyItem(container, position, object);
+			ImageView view = views.get(position);
+			container.removeView(view);
+			view.setImageBitmap(null);
+			
+		}
+		
 		@Override
 		public int getCount() {
 			// TODO Auto-generated method stub
-			return Integer.MAX_VALUE;
+			return views.size();
 		}
 
 		@Override
@@ -70,33 +99,48 @@ public class ViewPagerInfiniteLoop01 extends Activity {
 			return arg0==arg1;
 		}
 		
-		
-		@Override
-		public Object instantiateItem(ViewGroup container, int position) {
-			// TODO Auto-generated method stub
-			Log.i("aaa", "Integer.MAX_VALUE="+Integer.MAX_VALUE);
-			Log.i("aaa", "position="+position);
-			Log.i("aaa", "views.size()="+views.size());
-			Log.i("aaa", "position%views.size()="+position%views.size());
-			//position%views.size()  求余，得到被除数范围的递增值
-			//避免一个控件有多个父控件
-			//得到该控件的父控件，如果父控件不为空，说明该控件已经有父控件，移除当前父控件的控件，重新添加子控件
-			if(views.get(position%views.size()).getParent()!=null){
-				((ViewPager)views.get(position%views.size()).getParent()).removeView(views.get(position%views.size()));
-			}
-			((ViewPager)container).addView(views.get(position%views.size()), 0);
-			
-			return views.get(position%views.size());
-		}
-		
-	    @Override
-	    public void destroyItem(ViewGroup container, int position, Object object) {
-	    	// TODO Auto-generated method stub
-	    	((ViewPager)container).removeView(views.get(position%views.size()));
-	    }
+	}
+
+	@Override
+	public void onPageScrollStateChanged(int arg0) {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	
+
+
+	@Override
+	public void onPageScrolled(int arg0, float arg1, int arg2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onPageSelected(int position) {
+		// TODO Auto-generated method stub
+		/**
+		 * 当我们跳转到第1个图片位置，继续向右滑动的时候，让它自动跳转到最后图片的位置
+		 * 当我们跳转到最后一张图片的位置，继续向左滑动的时候，让它自动跳转到第一张图片的位置
+		 * 这样就形成两端的无限循环
+		 */
+		
+		
+		//将要跳转的ViewPager的索引
+		int pageIndex = position;
+		Log.i("aaa","position="+position);
+		if(position==0){
+			//当前在第一个位置,需要跳转的最后一个图片
+			pageIndex = pic.length;
+		}else if(position==pic.length+1){
+			//当前是最后一个位置，需要跳转到第一张图片
+			pageIndex = 1;
+		}
+		//如果是边界跳转
+		if(position!=pageIndex){
+			viewPager.setCurrentItem(pageIndex, false);
+			return;
+		}
+		
+	}
 
 }
