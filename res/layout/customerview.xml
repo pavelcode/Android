@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 自定义命名空间的包名是项目的包名，即清单文件中的包名 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:my="http://schemas.android.com/apk/res/com.cblue.android"
+    xmlns:my="http://schemas.android.com/apk/res/com.cblue.android" 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
