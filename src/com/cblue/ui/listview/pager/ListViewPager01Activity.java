@@ -1,7 +1,9 @@
-package com.cblue.ui.listview;
+package com.cblue.ui.listview.pager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.cblue.android.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.cblue.android.R;
+
 
 /**
  * 
@@ -20,25 +22,23 @@ import com.cblue.android.R;
  * @author Administrator
  *
  */
-public class ListView04ScrollActivity extends Activity{
+public class ListViewPager01Activity extends Activity{
 
 	private ListView listview;
 	ArrayAdapter<String> arrayAdapter;
 	//是否加载新数据
 	boolean  loadNewData = false;
 	private List<String> allData = new ArrayList<String>();
-	public static final String TAG = ListView04ScrollActivity.class.getName();
+	public static final String TAG = ListViewPager01Activity.class.getName();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.listview);
+		setContentView(R.layout.listview_pager01);
 		
 		listview = (ListView)findViewById(R.id.listView1);
-		
-	   
-	    
-	    arrayAdapter = new ArrayAdapter<String>(ListView04ScrollActivity.this, android.R.layout.simple_list_item_1,getData(""));
+		allData = getData("");
+	    arrayAdapter = new ArrayAdapter<String>(ListViewPager01Activity.this, android.R.layout.simple_list_item_1,allData);
 		listview.setAdapter(arrayAdapter);
 		
 	    listview.setOnScrollListener(new OnScrollListener() {
@@ -55,11 +55,14 @@ public class ListView04ScrollActivity extends Activity{
 				//当数据已经显示到最下面，且滚动停止，这时候就需要下载新数据
 				if(loadNewData && scrollState==OnScrollListener.SCROLL_STATE_IDLE){
 					//下载新数据
-					Toast.makeText(ListView04ScrollActivity.this, "开始下载数据", Toast.LENGTH_LONG).show();
+					Toast.makeText(ListViewPager01Activity.this, "开始下载数据", Toast.LENGTH_LONG).show();
 					// arrayAdapter = new ArrayAdapter<String>(ListView04ScrollActivity.this, android.R.layout.simple_list_item_1, getData("new "));
 					//listview.setAdapter(arrayAdapter);
+					Log.i("aaa", "1111"+allData.size());
 					allData.addAll(getData("web"));
 					arrayAdapter.notifyDataSetChanged();
+					Log.i("aaa", "2222"+allData.size());
+					
 				}
 				
 			}

@@ -4,9 +4,9 @@
  * @author Maxwin
  * @description XListView's footer
  */
-package com.cblue.ui.listpager.xlistview;
+package com.cblue.ui.listview.pager;
 
-
+import com.cblue.android.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cblue.android.R;
+
 
 public class XListViewFooter extends LinearLayout {
 	public final static int STATE_NORMAL = 0;

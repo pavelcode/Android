@@ -1,4 +1,4 @@
-package com.cblue.ui.listpager;
+package com.cblue.ui.listview.pager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ import android.widget.AbsListView.OnScrollListener;
  * @author Administrator
  *
  */
-public class List_Foot_PagerActivity extends Activity implements
+public class ListViewPager02Activity extends Activity implements
 		OnScrollListener {
 	
 	private ListView mListview = null;
@@ -39,9 +39,9 @@ public class List_Foot_PagerActivity extends Activity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.list_foot_pager);
+		setContentView(R.layout.listview_pager02);
 		//给ListView底部添加滚动条和提示信息
-		mFooterView = getLayoutInflater().inflate(R.layout.list_foot_pager_loadmore, null);
+		mFooterView = getLayoutInflater().inflate(R.layout.listview_pager02_loadmore, null);
 		mListview = (ListView) findViewById(R.id.listview);
 		mListview.addFooterView(mFooterView);// 设置列表底部视图
 		
@@ -99,7 +99,7 @@ public class List_Foot_PagerActivity extends Activity implements
 
 		public View getView(int position, View convertView, ViewGroup parent) {
 			if (convertView == null) {
-				convertView = getLayoutInflater().inflate(R.layout.list_foot_pager_item,
+				convertView = getLayoutInflater().inflate(R.layout.listview_pager02_item,
 						null);
 			}
 			// 新闻标题

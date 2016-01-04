@@ -4,9 +4,10 @@
  * @author Maxwin
  * @description XListView's header
  */
-package com.cblue.ui.listpager.xlistview;
+package com.cblue.ui.listview.pager;
 
 
+import com.cblue.android.R;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -20,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.cblue.android.R;
 
 public class XListViewHeader extends LinearLayout {
 	private LinearLayout mContainer;

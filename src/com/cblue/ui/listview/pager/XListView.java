@@ -1,4 +1,4 @@
-package com.cblue.ui.listpager.xlistview;
+package com.cblue.ui.listview.pager;
 
 import com.cblue.android.R;
 
