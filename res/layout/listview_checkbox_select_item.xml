@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"  
         android:layout_gravity="center_vertical"  
         android:layout_weight="1" />  
-  
+  <!-- focusableInTouchMode 设置焦点模式为false，让checkbox不对点击有反应，让listview的item起作用 -->
     <CheckBox  
         android:id="@+id/listview_checkbox_select_item_cb"  
         android:layout_width="wrap_content"  
