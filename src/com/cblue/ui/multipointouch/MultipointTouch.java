@@ -30,7 +30,7 @@ public class MultipointTouch extends Activity {
 	private ImageView mImageView;
 
 	private float currentDistance;
-	private float lastDistance = -1;
+	private float lastDistance = -1;  //两根手指之间距离的最后保存值
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,15 @@ public class MultipointTouch extends Activity {
 					float y = event.getY();
 					// 获得触摸点的坐标
 					Log.i(TAG, String.format("x:%f,y:%f", x, y));
+					//----------------单点触碰的例子---------------------
 					// 根据触摸点，修改图片的位置
 					RelativeLayout.LayoutParams mLayoutParams = (LayoutParams) mImageView
 							.getLayoutParams();
 					mLayoutParams.leftMargin = (int) x;
 					mLayoutParams.topMargin = (int) y;
 					mImageView.setLayoutParams(mLayoutParams);
+					
+					//----------------多点触碰的例子---------------------
 					// 获得触摸点的个数
 					int pointCount = event.getPointerCount();
 					Log.i(TAG, "pointCount=" + pointCount);
@@ -84,12 +87,14 @@ public class MultipointTouch extends Activity {
 						} else if (currentDistance - lastDistance > 5) {
 							// 如果当前的距离大于结果的距离，那么说明手指距离变大，这是一个放大的操作
 							Log.i(TAG, "图片放大");
+							//TOOD比较重要，不要忘记了
 							lastDistance = currentDistance;
 							//修改图片大小，方法本身的1.1倍
 							RelativeLayout.LayoutParams mLayoutParams1 = (LayoutParams) mImageView
 									.getLayoutParams();
 							mLayoutParams1.width = (int)(1.1f*mImageView.getWidth());
-							mLayoutParams1.topMargin = (int) (1.1f*mImageView.getHeight());
+							mLayoutParams1.height =(int)(1.1f*mImageView.getHeight());
+							//mLayoutParams1.topMargin = (int) (1.1f*mImageView.getHeight());
 							mImageView.setLayoutParams(mLayoutParams1);
 
 						} else if (currentDistance - lastDistance < 5) {
@@ -99,7 +104,8 @@ public class MultipointTouch extends Activity {
 							RelativeLayout.LayoutParams mLayoutParams2 = (LayoutParams) mImageView
 									.getLayoutParams();
 							mLayoutParams2.width = (int)(0.9f*mImageView.getWidth());
-							mLayoutParams2.topMargin = (int) (0.9f*mImageView.getHeight());
+							mLayoutParams2.height =(int)(0.9f*mImageView.getHeight());
+							//mLayoutParams2.topMargin = (int) (0.9f*mImageView.getHeight());
 							mImageView.setLayoutParams(mLayoutParams2);
 						}
 
