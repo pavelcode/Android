@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,6 +26,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -61,6 +63,7 @@ public class BluetoothActivity extends Activity implements OnClickListener,OnIte
 	
 	private EditText msg_et;
 	private Button msg_btn;
+	private TextView msg_tv;
 	private BluetoothService bluetoothService; //蓝牙连接服务
 	
 	
@@ -71,6 +74,21 @@ public class BluetoothActivity extends Activity implements OnClickListener,OnIte
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bluetooth_activity);
 		initView();
+	}
+	
+	/* (non-Javadoc)
+	 * 放在Resume的好处是每次都打开activity，都会启动服务端
+	 * @see android.app.Activity#onResume()
+	 */
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		//启动服务端
+		if(bluetoothService!=null){
+			bluetoothService.start();
+		}
+		
 	}
 
 	private void initView() {
@@ -97,10 +115,11 @@ public class BluetoothActivity extends Activity implements OnClickListener,OnIte
 		pairdBluetoothDevices = new ArrayList<BluetoothDevice>();
 		unpairdBluetoothDevices = new ArrayList<BluetoothDevice>();
 		
-		bluetoothService = new BluetoothService(getApplicationContext());
+		bluetoothService = new BluetoothService(getApplicationContext(),handler);
 		//发送蓝牙信息
 		msg_et = (EditText)findViewById(R.id.msg_et);
 		msg_btn = (Button)findViewById(R.id.msg_btn);
+		msg_tv =(TextView)findViewById(R.id.msg_tv);
 		msg_btn.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -217,6 +236,7 @@ public class BluetoothActivity extends Activity implements OnClickListener,OnIte
 	};
 	
 	protected void onDestroy() {
+		super.onDestroy();
 		unregisterReceiver(receiver);
 	};
 	
@@ -262,17 +282,32 @@ public class BluetoothActivity extends Activity implements OnClickListener,OnIte
 				// TODO: handle exception
 				Toast.makeText(getApplicationContext(), "配对失败", 1).show();
 			}
-			break;
-			
+			break;	
         //如果设备已配对，连接其他设备
 		case BluetoothDevice.BOND_BONDED:
 			Toast.makeText(getApplicationContext(), "开始连接设备", 1).show();
 			//启动蓝牙服务
-			bluetoothService.start(bluetoothDevice);	
+		     if(bluetoothService!=null){
+		    	synchronized (bluetoothDevice) {
+		    		bluetoothService.getConnectThread(bluetoothDevice).start();
+				}
+		    	
+		     }
+			
 			break;
 		}
 		
 	}
+	
+	
+	Handler handler = new Handler(){
+    	public void handleMessage(android.os.Message msg) {
+    		msg_tv.setText("");
+    		String info = (String)msg.obj;
+    		Log.i("aaa", "info="+info);
+    		msg_tv.setText(info);
+    	};
+    };
 	
 }
 
