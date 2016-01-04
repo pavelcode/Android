@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
+ * 
  * @author Administrator
  *
  */
@@ -16,12 +17,11 @@ public class CustomerTextView extends TextView {
 
 	
 	private String textValue;
+	
 	public CustomerTextView(Context context) {
 		super(context);
 		// TODO Auto-generated constructor stub
 	}
-
-	
 	
 	/**
 	 * Set 
