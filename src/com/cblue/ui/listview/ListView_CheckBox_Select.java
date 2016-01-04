@@ -167,7 +167,7 @@ public class ListView_CheckBox_Select extends Activity {
 }
 
 class MyAdapter extends BaseAdapter {
-	// 填充数据的list
+	// 填充数据的listc
 	private ArrayList<String> list;
 	// 用来控制CheckBox的选中状况(使用HashMap是因为键值不能重复)
 	private static HashMap<Integer, Boolean> isSelected;
@@ -235,14 +235,14 @@ class MyAdapter extends BaseAdapter {
 		CheckBox cb;
 	}
 
-	//得到单选框是否被选中的记录集合
-	public static HashMap<Integer, Boolean> getIsSelected() {
-		return isSelected;
-	}
-    //给适配器设置是单选框是否被选中的记录集合
-	public static void setIsSelected(HashMap<Integer, Boolean> isSelected) {
-		MyAdapter.isSelected = isSelected;
-	}
+	  //得到单选框是否被选中的记录集合  TODO 这里是静态方法
+		public static HashMap<Integer, Boolean> getIsSelected() {
+			return isSelected;
+		}
+	    //给适配器设置是单选框是否被选中的记录集合
+		public static void setIsSelected(HashMap<Integer, Boolean> isSelected) {
+			MyAdapter.isSelected = isSelected;
+		}
 
 	
 }
