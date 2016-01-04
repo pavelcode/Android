@@ -30,7 +30,7 @@ public class CustomerView extends View  {
 
 	public CustomerView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
+		//在values文件夹下创建一个arrays文件
 		TypedArray typedArray = context.obtainStyledAttributes(attrs,R.styleable.customview_attr);
 		mDrawable= typedArray.getDrawable(R.styleable.customview_attr_image);
 		textValue = typedArray.getString(R.styleable.customview_attr_text);
