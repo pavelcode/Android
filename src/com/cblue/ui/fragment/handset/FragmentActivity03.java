@@ -17,7 +17,9 @@ import android.widget.Button;
 /**
  * 在UI的底部，有三个按钮，点击按钮，上面对应的Fragment显示
  * 1》首先使用replace替换，每次都会重新创建类
- * 2》使用hidden，show 隐藏和显示Fragment，不会重新创建类
+ *    注意：1  每一个替换都需要一个新的Transaction对象 
+ *         2  add方法只能使用一次
+ * 2》【理解错误】使用hidden，show 隐藏和显示Fragment 不会重新创建类（这种方式效果不好）
  * 3》添加回退栈
  * @author pavel
  *
@@ -62,39 +64,42 @@ public class FragmentActivity03 extends FragmentActivity  implements OnClickList
 			// FragmentTransaction 必须每次得到
 			// 如果都使用add不会成功，可以使用replace
 			mfFragmentTransaction = mFragmentManager.beginTransaction();
+			/*trunFragment(fragments);
 			if(!fragment01.isAdded()){
 				mfFragmentTransaction.add(R.id.fragment_activity03_ll, fragment01);
 			}else{
-				//mfFragmentTransaction.show(fragment01);
-				trunFragment(fragments, fragment01);
-			}
+				mfFragmentTransaction.show(fragment01);
+				
+			}*/
+			mfFragmentTransaction.replace(R.id.fragment_activity03_ll,fragment01);
 			//添加回退栈
 			mfFragmentTransaction.addToBackStack(null);
-			//mfFragmentTransaction.replace(R.id.test_ll,fragment01);
 			mfFragmentTransaction.commit();
 			break;
 		case R.id.fragment_activity03_btn2:
 			mfFragmentTransaction = mFragmentManager.beginTransaction();
+			
+			/*trunFragment(fragments);
 			if(!fragment02.isAdded()){
 				mfFragmentTransaction.add(R.id.fragment_activity03_ll, fragment02);
 			}else{
-				trunFragment(fragments, fragment02);
-				//mfFragmentTransaction.hide(fragment01).show(fragment02);
-			}
+				mfFragmentTransaction.hide(fragment01).show(fragment02);
+			}*/
 			//添加回退栈
 			mfFragmentTransaction.addToBackStack(null);
-			//mfFragmentTransaction.replace(R.id.test_ll,new ViewPagerFragment02());
+			mfFragmentTransaction.replace(R.id.fragment_activity03_ll,fragment02);
 			mfFragmentTransaction.commit();
 			break;
 		case R.id.fragment_activity03_btn3:
 			mfFragmentTransaction = mFragmentManager.beginTransaction();
+			/*trunFragment(fragments);
 			if(!fragment03.isAdded()){
 				mfFragmentTransaction.add(R.id.fragment_activity03_ll, fragment03);
 			}else{
-				trunFragment(fragments, fragment03);
-				//mfFragmentTransaction.hide(fragment02).show(fragment03);
-			}
-			//mfFragmentTransaction.replace(R.id.test_ll,new ViewPagerFragment03());
+				
+				mfFragmentTransaction.hide(fragment02).show(fragment03);
+			}*/
+			mfFragmentTransaction.replace(R.id.fragment_activity03_ll,fragment03);
 			//添加回退栈
 			mfFragmentTransaction.addToBackStack(null);
 			mfFragmentTransaction.commit();
@@ -106,13 +111,12 @@ public class FragmentActivity03 extends FragmentActivity  implements OnClickList
 	 * @param allFragments
 	 * @param showFragment
 	 */
-	private void trunFragment(List<Fragment> allFragments,Fragment showFragment){
+	private void trunFragment(List<Fragment> allFragments){
 		//mfFragmentTransaction = mFragmentManager.beginTransaction();
 	    for(Fragment hiddenFragment:allFragments){
 	    	if(hiddenFragment.isAdded()){
 	    		mfFragmentTransaction.hide(hiddenFragment);
 	    	}
 	    }	
-	    mfFragmentTransaction.show(showFragment);
 	}
 }

@@ -22,6 +22,11 @@ import android.widget.AbsListView.OnScrollListener;
  * @author Administrator
  *
  */
+
+//1 下拉，显示提示头部界面(HeaderView)，这个过程提示用户"下拉刷新"
+//2 下拉到一定程度，超出了刷新最基本的下拉界限，我们认为达到了刷新的条件，提示用户可以"松手刷新"了，效果上允许用户继续下拉
+//3 用户松手，可能用户下拉远远不止提示头部界面，所以这一步，先反弹回仅显示提示头部界面，然后提示用户"正在加载"。
+//4  加载完成后，隐藏提示头部界面。*/
 public class ListViewPager02Activity extends Activity implements
 		OnScrollListener {
 	

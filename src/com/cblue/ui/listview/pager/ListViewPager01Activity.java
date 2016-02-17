@@ -19,6 +19,8 @@ import android.widget.Toast;
 /**
  * 
  * ListView分页
+ * 问题：不能重复的添加数据，需要修改
+ * 使用模拟器有时候效果不好，因为要出现甩完手指，离开屏幕
  * @author Administrator
  *
  */
@@ -43,10 +45,12 @@ public class ListViewPager01Activity extends Activity{
 		
 	    listview.setOnScrollListener(new OnScrollListener() {
 			
-	    	//1 下拉，显示提示头部界面(HeaderView)，这个过程提示用户"下拉刷新"
-	        //2 下拉到一定程度，超出了刷新最基本的下拉界限，我们认为达到了刷新的条件，提示用户可以"松手刷新"了，效果上允许用户继续下拉
-	        //3 用户松手，可能用户下拉远远不止提示头部界面，所以这一步，先反弹回仅显示提示头部界面，然后提示用户"正在加载"。
-	        //4  加载完成后，隐藏提示头部界面。*/
+	    	
+	    	
+	    	// 回调顺序如下
+	    				// 第1次：scrollState = SCROLL_STATE_TOUCH_SCROLL(1) 正在滚动
+	    				// 第2次：scrollState = SCROLL_STATE_FLING(2) 手指做了抛的动作（手指离开屏幕前，用力滑了一下）
+	    				// 第3次：scrollState = SCROLL_STATE_IDLE(0) 停止滚动	
 	    	//滚动状态发生变化时回调
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -69,10 +73,7 @@ public class ListViewPager01Activity extends Activity{
 			
 			//滚动时一直回调，直到停止滚动时才停止回调。单击时回调一次
 			//scrollState 滑动状态
-			// 回调顺序如下
-			// 第1次：scrollState = SCROLL_STATE_TOUCH_SCROLL(1) 正在滚动
-			// 第2次：scrollState = SCROLL_STATE_FLING(2) 手指做了抛的动作（手指离开屏幕前，用力滑了一下）
-			// 第3次：scrollState = SCROLL_STATE_IDLE(0) 停止滚动
+			
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {

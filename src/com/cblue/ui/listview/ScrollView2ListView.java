@@ -56,10 +56,13 @@ public class ScrollView2ListView extends Activity {
 		int totolHeigth = 0;
 		for(int i=0;i<listAdapter.getCount();i++){
 			View itemView = listAdapter.getView(i, null, listView);
+			//测量item的宽高
 			itemView.measure(0, 0);
+			//得到item的高度进行累加，得到item的总高度
 			totolHeigth += itemView.getMeasuredHeight();//TODO 这里不要写成getHeight()
 		}
 		ViewGroup.LayoutParams mLayoutParams = listView.getLayoutParams();
+		//item的总高度=item的高度和+分隔线的高度
 		mLayoutParams.height = totolHeigth+(listView.getDividerHeight()*(listView.getCount()-1));
 		
 		listView.setLayoutParams(mLayoutParams);
