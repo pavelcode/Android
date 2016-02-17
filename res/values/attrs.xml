@@ -8,4 +8,12 @@
     <!-- 夜间模式 属性定义 -->
     <attr name="nd_background" format="reference|string"/>
     <attr name="nd_textcolor" format="reference|string"/> 
+    
+    
+    
+    <declare-styleable name="round_imageview_attrs">
+        <attr name="border_width" format="dimension"/>  <!-- 边框宽度 -->
+        <attr name="border_inside_color" format="color"/><!-- 内边框颜色 -->
+        <attr name="border_outside_color" format="color"/><!-- 外边框颜色 -->
+    </declare-styleable>
 </resources>

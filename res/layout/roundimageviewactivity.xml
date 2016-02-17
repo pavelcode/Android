@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:my="http://schemas.android.com/apk/res/com.cblue.android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    
+    <com.cblue.customerview.RoundImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher"/>
+    
+    
+    <com.cblue.customerview.RoundImageView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        my:border_width="2sp"
+        my:border_inside_color="#ff0000"
+        my:border_outside_color="#00ff00"
+        android:src="@drawable/ic_launcher"/>
+
+</LinearLayout>
