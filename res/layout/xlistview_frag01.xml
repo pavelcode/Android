@@ -10,12 +10,6 @@
         android:layout_height="wrap_content"
         android:text="第一个Fragment" />
 
-    <com.cblue.ui.listpager.xlistview.XListView 
-        android:id="@+id/xListView"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" 
-        android:fastScrollEnabled="true"
-        android:cacheColorHint="#00000000">
-    </com.cblue.ui.listpager.xlistview.XListView>
+  
     
 </LinearLayout>
