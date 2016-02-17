@@ -31,6 +31,8 @@ import android.widget.ArrayAdapter;
  * @author Administrator
  *
  */
+
+
 public class XListViewActivity extends Activity implements IXListViewListener{
 
 	

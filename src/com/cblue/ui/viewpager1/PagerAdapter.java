@@ -1,4 +1,4 @@
-package com.cblue.ui.listpager.xlistview;
+package com.cblue.ui.viewpager1;
 
 import java.util.ArrayList;
 import android.content.Context;

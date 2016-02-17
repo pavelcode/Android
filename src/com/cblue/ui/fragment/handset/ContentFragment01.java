@@ -32,7 +32,6 @@ public class ContentFragment01 extends Fragment {
 		View view  = inflater.inflate(R.layout.fragmentcontent01_handset,container,false);
 		Button button = (Button)view.findViewById(R.id.frg_button01);
 		button.setOnClickListener(new OnClickListener() {
-			
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
