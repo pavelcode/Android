@@ -25,12 +25,7 @@ public class ReadSDCardResource {
 		context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri
 				.parse("file://" + Environment.getExternalStorageDirectory())));
 
-		ContentResolver mContentResolver = context.getContentResolver();
-	
-
-		// 视频 MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-		// 图片MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-		Uri image_Uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+		ContentResolver mContentResolver = context.getContentResolver();	
 		
 		// 要读的字段名,TITLE是标题 DATA是路径
 		// String[] columns = new String[] {MediaStore.Audio.Media.TITLE,MediaStore.Audio.Media.DATA};
@@ -38,10 +33,13 @@ public class ReadSDCardResource {
 				MediaStore.Images.Media.DISPLAY_NAME,
 				MediaStore.Images.Media.DATA };
 
+		// 视频 MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+		// 图片MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+		
 		// 跟查询SQL一样了,除了第一个参数不同外.后面根据时长过滤小于10秒的文件
 		// Cursor cursor = mContentResolver.query(AUDIO_URI, columns,
 		// MediaStore.Audio.Media.DURATION+">?", new String[]{"10000"}, null);
-		Cursor cursor = mContentResolver.query(image_Uri, null,
+		Cursor cursor = mContentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null,
 				MediaStore.Images.Media.MIME_TYPE + "=? or "
 						+ MediaStore.Images.Media.MIME_TYPE + "=?",
 				new String[] { "image/jpeg", "image/png" },
@@ -61,12 +59,10 @@ public class ReadSDCardResource {
 	public void readSDCardMediaResourceByContentProvider(Context context) {
 
 		ContentResolver mContentResolver = context.getContentResolver();
-		// 获取音频文件的URI
-		Uri AUDIO_URI = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
 		// 要读的列名,TITLE是标题 DATA是路径
 		String[] projection = new String[] {MediaStore.Audio.Media._ID,MediaStore.Audio.Media.TITLE,
 		 MediaStore.Audio.Media.DATA};
-		Cursor cursor = mContentResolver.query(AUDIO_URI, projection, null, null, null);
+		Cursor cursor = mContentResolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, null, null, null);
 		while(cursor.moveToNext()){
 			Log.i(TAG, "----");
 			Log.i(TAG, cursor.getString(0));
