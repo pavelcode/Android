@@ -189,27 +189,27 @@
 
         <!-- Interaction WebViwe Start -->
         <activity
-            android:name="com.cblue.interaction.webview.WebViewActivity1"
+            android:name="com.cblue.ui.webview.WebViewActivity1"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.webview.WebViewActivity2"
+            android:name="com.cblue.ui.webview.WebViewActivity2"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.webview.WebViewActivity3"
+            android:name="com.cblue.ui.webview.WebViewActivity4"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.webview.WebViewActivity4"
+            android:name="com.cblue.ui.webview.WebViewActivity5"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.webview.WebViewFirstActivity"
+            android:name="com.cblue.ui.webview.WebViewFirstActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.webview.WebViewSecondActivity"
+            android:name="com.cblue.ui.webview.WebViewSecondActivity"
             android:label="@string/app_name" >
         </activity>
 
@@ -218,11 +218,11 @@
 
         <!-- Interaction HTTP Start -->
         <activity
-            android:name="com.cblue.interaction.http.ApacheHttpClient"
+            android:name="com.cblue.interaction.http.HttpClientApacheDemo"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.interaction.http.BasicHttpClient"
+            android:name="com.cblue.interaction.http.HttpURLConnectionDemo"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -389,7 +389,7 @@
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.cblue.ui.fragment.FragmentActivityDemo"
+            android:name="com.cblue.ui.fragment.tablet.FragmentActivityDemo"
             android:label="@string/app_name" >
         </activity>
         <!-- Fragment End -->
