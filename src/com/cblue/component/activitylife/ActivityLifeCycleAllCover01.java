@@ -10,6 +10,11 @@ import android.widget.Button;
 
 import com.cblue.android.R;
 
+/**
+ * 全部掩盖Activity的生命周期
+ * @author pavel
+ *
+ */
 public class ActivityLifeCycleAllCover01 extends Activity {
 
 	private final String TAG= ActivityLifeCycleAllCover01.class.getSimpleName();

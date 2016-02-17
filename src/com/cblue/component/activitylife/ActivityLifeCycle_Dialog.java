@@ -11,6 +11,11 @@ import android.widget.Button;
 
 import com.cblue.android.R;
 
+/**
+ * Activity中弹出一个Dialog对生命周期的影响
+ * @author pavel
+ *
+ */
 public class ActivityLifeCycle_Dialog extends Activity {
 
 	private final String TAG= ActivityLifeCycle_Dialog.class.getSimpleName();

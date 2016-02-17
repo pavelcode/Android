@@ -10,6 +10,11 @@ import android.widget.Button;
 
 import com.cblue.android.R;
 
+/**
+ * 一个Activity的生命周期
+ * @author pavel
+ *
+ */
 public class ActivityLifeCycle_One extends Activity {
 
 	private final String TAG= ActivityLifeCycle_One.class.getSimpleName();
@@ -22,6 +27,27 @@ public class ActivityLifeCycle_One extends Activity {
    
         Log.i(TAG, "--onCreate");
     }
+	
+	/**
+	 * 当屏幕切换方向的时候，ctrl+F11
+	 */
+	//保存数据
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		// TODO Auto-generated method stub
+		super.onSaveInstanceState(outState);
+		Log.i(TAG, "--onSaveInstanceState");
+		outState.putInt("currrentPosition",100);
+	}
+	//获得数据
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onRestoreInstanceState(savedInstanceState);
+		Log.i(TAG, "--onRestoreInstanceState");
+		int currentPosition = savedInstanceState.getInt("--onRestoreInstanceState");
+	}
+	
 	@Override
 	protected void onRestart() {
 		// TODO Auto-generated method stub

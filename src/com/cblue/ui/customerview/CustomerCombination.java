@@ -19,5 +19,6 @@ public class CustomerCombination extends LinearLayout {
 		//必须使用三个参数的inflate方法
 		  LayoutInflater.from(context).inflate(R.layout.customercombination, this, true);
 	}
+	
 
 }

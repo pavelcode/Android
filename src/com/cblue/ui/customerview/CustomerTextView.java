@@ -49,5 +49,6 @@ public class CustomerTextView extends TextView {
 		canvas.drawText(textValue, 0, getTextSize(), paint);
 	}
 	
+	
 
 }

@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 /**
  * ActionBar实现选项菜单
- * 主要是布局文件属性控制显示效果：showAsAction
+ * 主要是布局文件属性控制显示效果：showAsAction 如果有空间的时候就显示ifRoom，不让显示，就是用never
  * @author Administrator
  *
  */
@@ -33,9 +33,24 @@ public class ActionBarActivity02 extends Activity {
 		return true;
 	};
 	
+	
+	
+	 @Override
+	    public boolean onOptionsItemSelected(MenuItem item) {
+	    	// TODO Auto-generated method stub
+	    	switch (item.getItemId()) {
+	    	
+			case R.id.item1_1:
+				Toast.makeText(ActionBarActivity02.this, "item1_1被点击", 1).show();
+				
+				break;
+
+	    	}
+	    	return super.onOptionsItemSelected(item);
+	    }
 	/* 
 	 * 菜单选项点击
-	 */
+	 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
 		// TODO Auto-generated method stub
@@ -51,6 +66,6 @@ public class ActionBarActivity02 extends Activity {
 		}
 		
 		return super.onMenuItemSelected(featureId, item);
-	}
+	}*/
 
 }

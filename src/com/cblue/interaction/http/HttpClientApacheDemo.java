@@ -20,7 +20,10 @@ import android.util.Log;
 
 
 /**
- * 以同步方式发送Http请求
+ * 以同步方式发送Http请求（使用线程，使用网络权限）
+ *  1 通过get方式获得内容
+ *  2 通过get方式获得图片，并显示在界面上或保存在本地
+ *  3 通过post方式提交数据
  */
 public class HttpClientApacheDemo
 {
@@ -32,6 +35,7 @@ public class HttpClientApacheDemo
 	public String httpGet(String url)
 	{
 		String response = null;
+		//创建Http的客户端对象  HttpClient是接口，创建对象使用它的一个实现类
 		HttpClient httpclient = new DefaultHttpClient();
 		//创建HttpGet对象
 		HttpGet httpGet = new HttpGet(url);

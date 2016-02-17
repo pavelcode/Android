@@ -10,6 +10,12 @@ import android.widget.Button;
 
 import com.cblue.android.R;
 
+/**
+ * 部分掩盖Activity的生命周期
+ * 部分Activity中添加属性android:theme="@android:style/Theme.Dialog"
+ * @author pavel
+ *
+ */
 public class ActivityLifeCyclePartCover01 extends Activity {
 
 	private final String TAG= ActivityLifeCyclePartCover01.class.getSimpleName();
