@@ -1,4 +1,4 @@
-package com.cblue.file.download.multipthread;
+package com.cblue.file.download.multithread;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +15,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 /**
- * 多线程断点续传 举例：10M文件，三个线程下载 
+ * 
+ * 多线程断点续传 举例：10M文件，三个线程下载 （先使用java程序编写，方便中断测试，然后移植到Android项目中，使用线程中断，测试中断）
  * 首先实现多线程下载
  * 1 线程计数 0，1，2 
  * 2 文件的总大小 
@@ -34,7 +35,7 @@ import android.util.Log;
  * @author pavel
  * 
  */
-public class DownloadActivity extends Activity {
+public class MultiThreadDownLoadActivity extends Activity {
 
 	/********
 	 * 1 获取文件大小 2 在客户端创建一个跟文件大小一致的临时文件
@@ -217,7 +218,7 @@ public class DownloadActivity extends Activity {
 				if (connection.getResponseCode() == 206) {
 					InputStream input = connection.getInputStream();
 					RandomAccessFile writeRandomAccessFile = new RandomAccessFile(
-							DownloadActivity.saveFile, "rwd");
+							MultiThreadDownLoadActivity.saveFile, "rwd");
 					// 写文件的开始位置
 					writeRandomAccessFile.seek(startIndex);
 
@@ -239,10 +240,10 @@ public class DownloadActivity extends Activity {
 					}
 					Log.i("aaa", "线程"+threadId+"已经下载完成");
 					//每个线程完成之后，都会累加，当所有线程都执行完毕之后，就删除所有临时文件
-					DownloadActivity.threadFinished++;
+					MultiThreadDownLoadActivity.threadFinished++;
 					
-					synchronized (DownloadActivity.this) {
-						if(DownloadActivity.threadFinished==DownloadActivity.threadCount){
+					synchronized (MultiThreadDownLoadActivity.this) {
+						if(MultiThreadDownLoadActivity.threadFinished==MultiThreadDownLoadActivity.threadCount){
 							for(int i=0;i<threadCount;i++){
 								deleteThreadFile(i+".txt", new File(""));
 							}
